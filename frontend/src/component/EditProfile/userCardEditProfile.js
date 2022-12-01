@@ -19,7 +19,7 @@ const UserCardEditProfile = ({ profile }) => {
 
           <Link
             className="btn btn-outline-white"
-            to="/tootasty/profile">
+            to="/rottenapples/profile">
             Back
           </Link>
         </div>

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import './book.css'
-import RestaurantDetail from '../RestaurantDetail/bookDetail'
-import RestaurantReview from '../RestaurantReview/bookReview'
+import BookDetail from '../BookDetail/bookDetail'
+import BookReview from '../BookReview/bookReview'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { listRestaurantDetails } from '../../actions/bookActions'
+import { listBookDetails } from '../../actions/bookActions'
 
-const RestaurantScreen = () => {
+const BookScreen = () => {
   const dispatch = useDispatch()
 
   const bookId = useParams().id
@@ -22,13 +22,13 @@ const RestaurantScreen = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    dispatch(listRestaurantDetails(bookId))
+    dispatch(listBookDetails(bookId))
   }, [dispatch, bookId, createReviewSuccess, deleteReviewSuccess])
 
   return (
     <>
-      <RestaurantDetail book={book}/>
-      {book && <RestaurantReview reviews={book.reviews}/>}
+      <BookDetail book={book}/>
+      {book && <BookReview reviews={book.reviews}/>}
     </>
   )
 }

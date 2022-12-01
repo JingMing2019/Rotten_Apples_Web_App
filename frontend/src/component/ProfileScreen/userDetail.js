@@ -7,9 +7,9 @@ const UserDetail = ({
         "firstname":"Alice",
         "lastname": "Wonderland",
         "email": "alice@134.com",
-        "role": "customer",
-        "bio": "I love eatting!",
-        "location": "Watertown",
+        'role': 'reader',
+        'bio': 'I love reading!',
+        'location': 'San Jose',
         "image_url": "./img/top-liked-1.jpg"
     }
                     }) => {

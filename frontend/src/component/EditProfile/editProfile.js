@@ -19,7 +19,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate('/tootasty/login')
+      navigate('/rottenapples/login')
     } else if (!user.name) {
       dispatch(getUserProfile())
     }

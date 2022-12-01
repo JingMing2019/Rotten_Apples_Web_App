@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 import connectDB from './utils/connectDB.js'
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
 import userRoute from './routes/userRoutes.js'
-import restaurantRoutes from './routes/restaurantRoutes.js'
-import yelpSearchRoutes from './routes/yelpSearchRoutes.js'
+import restaurantRoutes from './routes/bookRoutes.js'
+import yelpSearchRoutes from './routes/googlebookSearchRoutes.js'
 import path from 'path'
 
 dotenv.config()

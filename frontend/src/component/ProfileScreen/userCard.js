@@ -11,9 +11,9 @@ const UserCard = ({
                       'firstname': 'Alice',
                       'lastname': 'Wonderland',
                       'email': 'alice@134.com',
-                      'role': 'customer',
-                      'bio': 'I love eatting!',
-                      'location': 'Watertown',
+                      'role': 'reader',
+                      'bio': 'I love reading!',
+                      'location': 'San Jose',
                       'image_url': './img/top-liked-1.jpg'
                     }
                   }) => {
@@ -29,7 +29,7 @@ const UserCard = ({
           </h3>
           <span className="badge rounded-pill bg-primary disabled">{profile.role}</span>
           <p className="text-white">{profile.bio}</p>
-          <Link to="/tootasty/edit">
+          <Link to="/rottenapples/edit">
             <button type="reset" className="btn btn-outline-white">Edit Profile</button>
           </Link>
         </div>

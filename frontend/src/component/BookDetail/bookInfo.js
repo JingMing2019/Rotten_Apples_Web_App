@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import RatingStar from '../Rating/ratingStar'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserProfile, likeRestaurant, unLikeRestaurant } from '../../actions/userActions'
+import { getUserProfile, likeBook, unLikeBook } from '../../actions/userActions'
 
-const RestaurantInfo = ({ restaurantInfo }) => {
+const BookInfo = ({ bookInfo }) => {
   const dispatch = useDispatch()
 
   const userLogin = useSelector(state => state.userLogin)
@@ -12,19 +12,19 @@ const RestaurantInfo = ({ restaurantInfo }) => {
   const userProfile = useSelector(state => state.userProfile)
   const { user } = userProfile
 
-  const [restaurant, setRestaurant] = useState(restaurantInfo)
+  const [book, setBook] = useState(bookInfo)
 
   useEffect(() => {
     if (userInfo && !user.name) {
       dispatch(getUserProfile())
     } else if (userInfo && user.name) {
-      // check if the user liked the restaurant
-      if (user && user.likedRestaurant.numLiked > 0) {
-        const likedRestaurant = user.likedRestaurant.data
-          .find(item => item.restaurant === restaurant._id)
-        if (likedRestaurant) {
-          setRestaurant({
-            ...restaurant,
+      // check if the user liked the book
+      if (user && user.likedBook.numLiked > 0) {
+        const likedBook = user.likedBook.data
+          .find(item => item.book === book._id)
+        if (likedBook) {
+          setBook({
+            ...book,
             liked: true
           })
         }
@@ -33,29 +33,29 @@ const RestaurantInfo = ({ restaurantInfo }) => {
 
   }, [dispatch, userInfo, user])
 
-  const likeRestaurantHandler = () => {
-    if (!restaurant.liked) {
-      // like restaurant
-      setRestaurant({
-        ...restaurant,
-        liked: !restaurant.liked,
+  const likeBookHandler = () => {
+    if (!book.liked) {
+      // like book
+      setBook({
+        ...book,
+        liked: !book.liked,
         stats: {
-          ...restaurant.stats,
-          likes: restaurant.stats.likes + 1
+          ...book.stats,
+          likes: book.stats.likes + 1
         }
       })
-      dispatch(likeRestaurant(restaurant))
+      dispatch(likeBook(book))
     } else {
-      // unlike restaurant
-      setRestaurant({
-        ...restaurant,
-        liked: !restaurant.liked,
+      // unlike book
+      setBook({
+        ...book,
+        liked: !book.liked,
         stats: {
-          ...restaurant.stats,
-          likes: restaurant.stats.likes - 1
+          ...book.stats,
+          likes: book.stats.likes - 1
         }
       })
-      dispatch(unLikeRestaurant(restaurant))
+      dispatch(unLikeBook(book))
     }
 
   }
@@ -64,26 +64,26 @@ const RestaurantInfo = ({ restaurantInfo }) => {
   return (
     <>
       <div className="position-relative">
-        <img src={restaurant.image_url} className="card-img-top banner-height" alt=""/>
+        <img src={book.image_url} className="card-img-top banner-height" alt=""/>
       </div>
       <div className="position-absolute img-title-pos">
-        <h1 className="restaurant-title ">{restaurant.name}</h1>
+        <h1 className="book-title ">{book.name}</h1>
         <ul className="list-inline font-orange-bolder">
           <li className="list-inline-item">
-            <RatingStar value={restaurant.rating}/>
+            <RatingStar value={book.rating}/>
           </li>
           <li className="list-inline-item position-up"><i
-            className="fa fa-user-o"></i>{restaurant.stats.numReviews} Reviews
+            className="fa fa-user-o"></i>{book.stats.numReviews} Reviews
           </li>
         </ul>
 
         <ul className="list-inline font-orange-bolder">
           <li className="list-inline-item"><i
-            className="fa-solid fa-calendar-days"></i> {restaurant.is_closed ? 'Closed' : 'Open'}
+            className="fa-solid fa-calendar-days"></i> {book.is_closed ? 'Closed' : 'Open'}
           </li>
         </ul>
         <ul className="list-inline font-orange-bolder">
-          <li className="list-inline-item"><i className="fa-solid fa-location-arrow"></i> {restaurant.address}
+          <li className="list-inline-item"><i className="fa-solid fa-location-arrow"></i> {book.address}
           </li>
         </ul>
         <div>
@@ -98,14 +98,14 @@ const RestaurantInfo = ({ restaurantInfo }) => {
             disabled={!userInfo}
           >
             {
-              !restaurant.liked &&
+              !book.liked &&
               <span>Like</span>
             }
             {
-              restaurant.liked &&
+              book.liked &&
               <span>Liked</span>
             }
-            <span>({restaurant.stats && restaurant.stats.likes})</span></button>
+            <span>({book.stats && book.stats.likes})</span></button>
         </div>
 
       </div>

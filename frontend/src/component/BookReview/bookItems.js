@@ -14,7 +14,7 @@ const ReviewItems = ({ review }) => {
   const { userInfo } = userLogin
 
   const deleteHandler = () => {
-    dispatch(deleteReview(review.restaurant, review._id))
+    dispatch(deleteReview(review.book, review._id))
   }
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import ReviewItems from './reviewItems'
 import WriteReview from './writeReview'
 
-const RestaurantReview = ({ reviews }) => {
+const BookReview = ({ reviews }) => {
   return (
     <div className="container">
       <div className="row">
@@ -33,4 +33,4 @@ const RestaurantReview = ({ reviews }) => {
   )
 }
 
-export default RestaurantReview
+export default BookReview

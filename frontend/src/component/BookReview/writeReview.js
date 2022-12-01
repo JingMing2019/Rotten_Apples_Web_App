@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import Rating from '@mui/material/Rating'
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography'
-import { createRestaurantReview } from '../../actions/restaurantActions'
-import { RESTAURANT_CREATE_REVIEW_RESET } from '../../constants/restaurantConstants'
+import { createBookReview } from '../../actions/bookActions'
+import { RESTAURANT_CREATE_REVIEW_RESET } from '../../constants/bookConstants'
 import {FormControlLabel} from "@mui/material";
 
 const WriteReview = () => {
-  const { id: restaurantId } = useParams()
+  const { id: bookId } = useParams()
   let [comment, setComment] = useState('')
   let [rating, setRating] = useState(0)
   let [isAnonymous, setIsAnonymous] = useState(false)
@@ -21,7 +21,7 @@ const WriteReview = () => {
   const submitReviewHandler = (e) => {
     e.preventDefault()
     dispatch(
-      createRestaurantReview(restaurantId, {
+      createBookReview(bookId, {
         rating,
         comment,
         isAnonymous
@@ -29,8 +29,8 @@ const WriteReview = () => {
     )
   }
 
-  const restaurantCreateReview = useSelector(state => state.restaurantCreateReview)
-  const { success: createReviewSuccess } = restaurantCreateReview
+  const bookCreateReview = useSelector(state => state.bookCreateReview)
+  const { success: createReviewSuccess } = bookCreateReview
 
   useEffect(() => {
     if (createReviewSuccess) {

@@ -1,9 +1,9 @@
 import reviews from '../data/review.json'
 import {
-  RESTAURANT_DELETE_REVIEW_FAIL,
-  RESTAURANT_DELETE_REVIEW_REQUEST,
-  RESTAURANT_DELETE_REVIEW_SUCCESS
-} from '../constants/restaurantConstants'
+  BOOK_DELETE_REVIEW_FAIL,
+  BOOK_DELETE_REVIEW_REQUEST,
+  BOOK_DELETE_REVIEW_SUCCESS
+} from '../constants/bookConstants'
 
 export const reviewReducer = (state = reviews, action) => {
   switch (action.type) {
@@ -27,11 +27,11 @@ export const reviewReducer = (state = reviews, action) => {
 
 export const deleteReviewReducer = (state = {}, action) => {
   switch (action.type) {
-    case RESTAURANT_DELETE_REVIEW_REQUEST:
+    case BOOK_DELETE_REVIEW_REQUEST:
       return { loading: true }
-    case RESTAURANT_DELETE_REVIEW_SUCCESS:
+    case BOOK_DELETE_REVIEW_SUCCESS:
       return { loading: false, success: true }
-    case RESTAURANT_DELETE_REVIEW_FAIL:
+    case BOOK_DELETE_REVIEW_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state

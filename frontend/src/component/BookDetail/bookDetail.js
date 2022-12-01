@@ -1,14 +1,14 @@
 import React from 'react'
-import RestaurantInfo from './restaurantInfo'
+import BookInfo from './bookInfo'
 
-const RestaurantDetail = ({ restaurant }) => {
+const BookDetail = ({ book }) => {
 
   return (
     <>
       <section className="header height-auto">
         <div className="container ps-0 pe-0">
           <div className="row">
-            {restaurant && <RestaurantInfo restaurantInfo={restaurant}/>}
+            {book && <BookInfo bookInfo={book}/>}
           </div>
         </div>
       </section>
@@ -17,5 +17,5 @@ const RestaurantDetail = ({ restaurant }) => {
   )
 }
 
-export default RestaurantDetail
+export default BookDetail
 

@@ -1,0 +1,11 @@
+{
+  "_id": "34238432784901",
+  "name": "Alice Wander",
+  "firstname": "Alice",
+  "lastname": "Wander",
+  "email": "alice@134.com",
+  "role": "customer",
+  "bio": "I love eatting!",
+  "location": "Watertown",
+  "image_url": "./img/top-liked-1.jpg"
+}

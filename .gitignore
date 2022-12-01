@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# build
+/frontend/build
+
+# dev
+/backend/dev
+
+.idea
+.DS_Store
+.env

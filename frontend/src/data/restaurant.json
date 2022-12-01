@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "1",
+    "name": "Sumiao Hunan Kitchen",
+    "address": "270 Third St Cambridge, MA 02142",
+    "image": "https://media-cdn.grubhub.com/image/upload/f_auto,fl_lossy,q_auto/v1647894288/homepage/soup-image-full.png",
+    "is_closed": false,
+    "rating" : 4,
+    "stats": {
+      "numReviews": "123",
+      "numLikes": "234"
+    }
+   }
+]

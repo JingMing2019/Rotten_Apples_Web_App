@@ -1,0 +1,156 @@
+/*.container {*/
+/*    max-width: 1550px;*/
+/*}*/
+
+.padding-right{
+    padding-right: -6.5rem!important;
+}
+
+.img-title-pos {
+    z-index: 1;
+    bottom: 45%;
+    left: 16%;
+}
+
+.banner-height {
+    height: 500px;
+}
+
+
+
+.restaurant-title {
+    font-size: 55px;
+    font-weight: 600;
+    color: rgb(233,84,32);
+}
+
+.restaurant-info-pos {
+    bottom: -100px;
+}
+
+
+
+.font-orange-bolder{
+    color: rgb(233,84,32);
+    font-weight: bolder;
+}
+
+.product-page-content{
+    width:100%;
+    overflow: hidden;
+    padding:50px 13px 0;
+}
+
+
+.product-page-content .review {
+    color: #6e7a85;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.product-page-content .rateit {
+    margin-right: 27px;
+    position: relative;
+    top: 2px;
+}
+.product-page-content .review a {
+    color: #e6400c;
+}
+.product-page-content .social-icons li a {
+    background-position: 0 -38px;
+    opacity: 1;
+}
+
+
+/* reviews tab */
+.reviews-form {
+    padding-top: 20px;
+}
+.reviews-form label {
+    font-weight: normal;
+}
+.reviews-form input.form-control {
+    color: #aaa;
+}
+.review-item {
+    width: 100%;
+    overflow: hidden;
+    /*border-bottom: solid 1px #eee;*/
+    padding: 0 5px 5px;
+    /*margin: 0 -5px 20px;*/
+}
+.review-item-submitted {
+    margin-bottom: 5px;
+    position: relative;
+}
+.review-item-submitted strong,
+.review-item-submitted em {
+    display: block;
+}
+.review-item-submitted strong {
+    margin-bottom: 3px;
+}
+.review-item-submitted em {
+    font-style: normal;
+    color: #bbb;
+    font-size: 12px;
+}
+.review-item-submitted .rateit {
+    position: absolute;
+    top: 3px;
+    right: 0;
+}
+
+.ecommerce .nav-tabs {
+    text-transform: uppercase;
+    font: 16px/1 "PT Sans Narrow", sans-serif;
+}
+.ecommerce .nav-tabs > li > a, .ecommerce .nav-tabs > li > a:hover, .ecommerce .nav-tabs > li > a:focus {
+    padding: 5px 15px 3px;
+    background: #edeff1;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background: #E6400C;
+    color: #fff;
+}
+.product-page-content .tab-content {
+    padding: 20px 15px;
+    background: #fff;
+}
+
+.grid-image-left {
+    width: 5%;
+    float: left;
+    /*padding-top: 12px;*/
+}
+
+.name-heading {
+    float: left;
+    width: 95%;
+
+}
+
+.review-time{
+    font-size: 13px;
+    color: rgb(110,118,125);
+}
+
+.position-up{
+    position: relative;
+    bottom:7px;
+}
+
+.non-line{
+    text-decoration: none;
+}
+
+.color-black{
+    color: #1c1c1c;
+}
+
+.display-inline{
+    display: inline;
+}

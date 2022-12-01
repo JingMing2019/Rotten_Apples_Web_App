@@ -1,0 +1,58 @@
+.font-white{
+    color: white;
+}
+
+.form-width{
+    position: relative;
+    width: 50%;
+    left:20%;
+}
+
+.btn-pos{
+    left: 42%;
+}
+
+.avatar-position{
+    position: relative;
+    left: 100px;
+    bottom: -80px;
+    width: 120%;
+    height: 100%;
+}
+
+.user-card-flex {
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    width: auto;
+    min-width: 400px;
+    background-color: rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    flex-flow: column;
+    text-align: center;
+}
+.user-card img {
+    height: 17rem;
+    width: 17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid white;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, .125);
+    border: 1px solid rgba(0, 0, 0, .125);
+}

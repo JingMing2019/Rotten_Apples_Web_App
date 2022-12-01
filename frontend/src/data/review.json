@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "1",
+    "firstname": "Bob",
+    "lastname": "Smith",
+    "time": "04/15/2022",
+    "rating": 3.5,
+    "review": "Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci."
+  },
+  {
+    "_id": "2",
+    "firstname": "Alice",
+    "lastname": "Ford",
+    "time": "04/16/2022",
+    "rating": 2.5,
+    "review": "Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci."
+  }
+]

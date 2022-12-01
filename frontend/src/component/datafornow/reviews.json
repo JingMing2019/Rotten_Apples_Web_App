@@ -1,0 +1,23 @@
+[
+  {
+    "name": "La Royal",
+    "rating": 4.5,
+     "address": "221 Concord Ave cambridge, MA 02138 Huron Village",
+    "img_url": "../img/top-liked-1.jpg",
+    "comment": "My family's favorite pizza spot. The ingredients are so fresh and the staff is always so wonderful."
+  },
+  {
+    "name": "Saigon NV",
+    "rating": 2,
+    "address": "381 Main St, Malden, MA 02148",
+    "img_url": "../img/top-liked-2.jpg",
+    "comment": "Really, really bad service. The waitress was completely inattentive. "
+  },
+  {
+    "name": "Pho Town 7",
+    "rating": 3.5,
+    "address": "Medford, MA 02155",
+    "img_url": "../img/top-liked-3.jpg",
+    "comment": "The food is ok. I don't really have a pull that encourages me to return to this place. "
+  }
+]

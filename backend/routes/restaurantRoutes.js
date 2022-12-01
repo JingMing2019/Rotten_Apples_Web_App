@@ -2,27 +2,27 @@ import express from 'express'
 
 const router = express.Router()
 import {
-  getRestaurantById,
-  deleteRestaurant,
-  updateRestaurant,
-  createRestaurantReview,
-  getTopRestaurants,
-  getRecentReviewedRestaurants,
-  deleteRestaurantReview,
-} from '../controllers/restaurantController.js'
+  getBookById,
+  deleteBook,
+  updateBook,
+  createBookReview,
+  getTopBooks,
+  getRecentReviewedBooks,
+  deleteBookReview,
+} from '../controllers/bookController.js'
 import {
   authOwner,
   authToken,
 } from '../middlewares/authMiddleware.js'
 
-router.get('/top', getTopRestaurants)
-router.get('/recent-reviewed', getRecentReviewedRestaurants)
-router.route('/:id/reviews/:reviewId').delete(authToken, deleteRestaurantReview)
-router.route('/:id/reviews').post(authToken, createRestaurantReview)
+router.get('/top', getTopBooks)
+router.get('/recent-reviewed', getRecentReviewedBooks)
+router.route('/:id/reviews/:reviewId').delete(authToken, deleteBookReview)
+router.route('/:id/reviews').post(authToken, createBookReview)
 router
   .route('/:id')
-  .get(getRestaurantById)
-  .delete(authToken, authOwner, deleteRestaurant)
-  .put(authToken, authOwner, updateRestaurant)
+  .get(getBookById)
+  .delete(authToken, authOwner, deleteBook)
+  .put(authToken, authOwner, updateBook)
 
 export default router

@@ -11,9 +11,9 @@ export const reviewSchema = new mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    restaurant: {
+    book: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Restaurant',
+      ref: 'Book',
       required: true,
     },
   },

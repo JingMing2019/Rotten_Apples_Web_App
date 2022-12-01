@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import { reviewSchema } from './reviewModel.js'
 
-const restaurantSchema = new mongoose.Schema(
+const bookSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     yelp_id: { type: String, default: '' },
@@ -27,6 +27,6 @@ const restaurantSchema = new mongoose.Schema(
   }
 )
 
-const Restaurant = mongoose.model('Restaurant', restaurantSchema)
+const Book = mongoose.model('Book', bookSchema)
 
-export default Restaurant
+export default Book

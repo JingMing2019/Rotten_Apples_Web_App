@@ -4,8 +4,8 @@ import {
   getUserProfile,
   registerUser,
   updateUserProfile,
-  likeRestaurant,
-  unlikeRestaurant,
+  likeBook,
+  unlikeBook,
   getUserProfileById
 } from '../controllers/userController.js'
 import { authToken } from '../middlewares/authMiddleware.js'
@@ -24,9 +24,9 @@ router.route('/profile')
   .get(authToken, getUserProfile)
   .put(authToken, updateUserProfile)
 
-router.route('/restaurant/:id')
-  .delete(authToken, unlikeRestaurant)
-  .put(authToken, likeRestaurant)
+router.route('/book/:id')
+  .delete(authToken, unlikeBook)
+  .put(authToken, likeBook)
 
 
 export default router

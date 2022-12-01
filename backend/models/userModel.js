@@ -42,7 +42,7 @@ const userSchema = mongoose.Schema(
       required: true,
       default: 'Boston'
     },
-    likedRestaurant: [
+    likedBook: [
       {
         name: { type: String, required: true },
         image_url: { type: String, required: true },
@@ -50,13 +50,13 @@ const userSchema = mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           required: true,
           unique: true,
-          ref: 'Restaurant',
+          ref: 'Book',
         },
       }
     ],
-    ownedRestaurant: {
+    ownedBook: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Restaurant',
+      ref: 'Book',
     },
   },
   {

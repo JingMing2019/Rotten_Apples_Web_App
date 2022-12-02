@@ -96,7 +96,7 @@ export const userUpdateProfileReducer = (state = {}, action) => {
   }
 }
 
-export const userLikeRestaurantReducer = (state = {}, action) => {
+export const userLikeBookReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_LIKE_BOOK_REQUEST:
       return { loading: true }

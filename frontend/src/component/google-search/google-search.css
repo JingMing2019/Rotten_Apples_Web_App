@@ -1,14 +1,14 @@
 .homepage-list-child {
     width: 700px;
 }
-.yelp-search-img {
+.google-search-img {
     width: 200px;
     height: 150px;
     overflow: hidden;
 
     object-fit: cover;
 }
-.yelp-search-img .text {
+.google-search-img .text {
     position: absolute;
     inset: 30px;
     padding: 18px;

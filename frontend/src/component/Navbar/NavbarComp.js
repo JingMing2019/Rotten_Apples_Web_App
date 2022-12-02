@@ -32,7 +32,7 @@ const NavbarComp = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="mr-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
               <Nav.Link as={Link} to="/rottenapples/home" className={`${active === 'home' ? 'active' : ""}`}>Home</Nav.Link>
-              <Nav.Link as={Link} to="/rottenapples/search">Search</Nav.Link>
+              <Nav.Link as={Link} to="/rottenapples/search" className={`${active === 'search' ? 'active' : ""}`}>Search</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
               {userInfo ? (

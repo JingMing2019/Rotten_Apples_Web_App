@@ -16,7 +16,7 @@ const GoogleSearchListItem = ({ book }) => {
         <li className="text-white list-group-item justify-content-between align-items-center">
           <div className="homepage-list-child row">
             <div className="col-12 col-md-4">
-              <img className="yelp-search-img" src={book.image_url} alt=""/>
+              <img className="google-search-img" src={book.image_url} alt=""/>
             </div>
             <div className="text p-2 col-md-8">
               <h5>{book.name}</h5>

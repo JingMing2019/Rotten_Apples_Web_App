@@ -1,7 +1,7 @@
 import expressAsyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
-import Restaurant from '../models/bookModel.js'
+import Book from '../models/bookModel.js'
 
 // @desc    register new suer
 // @routes   POST /api/users
@@ -125,27 +125,27 @@ export const getUserProfileById = expressAsyncHandler(async (req, res) => {
 export const likeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
-  let restaurant = await Restaurant.findById(req.params.id)
+  let book = await Book.findById(req.params.id)
   // update user liked list
-  if (user && restaurant) {
-    user.likedRestaurant.push({
-      name: restaurant.name,
-      image_url: restaurant.image_url,
-      restaurant: restaurant._id,
+  if (user && book) {
+    user.likedBook.push({
+      name: book.name,
+      image_url: book.image_url,
+      book: book._id,
     })
     const updatedUser = await user.save()
 
     // add restaurant likes
-    restaurant.stats.likes = restaurant.stats.likes + 1
-    await restaurant.save()
+    book.stats.likes = book.stats.likes + 1
+    await book.save()
 
     res.json(formatUserResponse(updatedUser))
   } else if (!user) {
     res.status(401)
     throw new Error('User not found')
-  } else if (!restaurant) {
+  } else if (!book) {
     res.status(401)
-    throw new Error('Restaurant not found')
+    throw new Error('Book not found')
   }
 })
 
@@ -155,26 +155,26 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
 export const unlikeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
-  let restaurant = await Restaurant.findById(req.params.id)
+  let book = await Book.findById(req.params.id)
   // const restaurant = await Restaurant.findById(req.restaurant._id)
   // update user liked list
-  if (user && restaurant) {
-    user.likedRestaurant = user.likedRestaurant.filter(
-      (data) => !data.restaurant.equals(restaurant._id)
+  if (user && book) {
+    user.likedBook = user.likedBook.filter(
+      (data) => !data.book.equals(book._id)
     )
     const updatedUser = await user.save()
 
     // add restaurant likes
-    restaurant.stats.likes = restaurant.stats.likes - 1
-    await restaurant.save()
+    book.stats.likes = book.stats.likes - 1
+    await book.save()
 
     res.json(formatUserResponse(updatedUser))
   } else if (!user) {
     res.status(401)
     throw new Error('User not found')
-  } else if (!restaurant) {
+  } else if (!book) {
     res.status(401)
-    throw new Error('Restaurant not found')
+    throw new Error('Book not found')
   }
 })
 
@@ -188,11 +188,11 @@ const formatUserResponse = (user) => {
     role: user.role,
     bio: user.bio,
     location: user.location,
-    likedRestaurant: {
-      data: user.likedRestaurant,
-      numLiked: user.likedRestaurant ? user.likedRestaurant.length : 0,
+    likedBooks: {
+      data: user.likedBooks,
+      numLiked: user.likedBooks ? user.likedBooks.length : 0,
     },
-    ownedRestaurant: user.ownedRestaurant,
+    ownedBooks: user.ownedBooks,
   }
 }
 
@@ -205,6 +205,6 @@ const formatUserLoginResponse = (user) => {
     email: user.email,
     token: generateToken(user._id),
     role: user.role,
-    ownedRestaurant: user.ownedRestaurant,
+    ownedBooks: user.ownedBooks,
   }
 }

@@ -11,7 +11,7 @@ import {
   deleteBookReview,
 } from '../controllers/bookController.js'
 import {
-  authOwner,
+  authWriter,
   authToken,
 } from '../middlewares/authMiddleware.js'
 
@@ -22,7 +22,7 @@ router.route('/:id/reviews').post(authToken, createBookReview)
 router
   .route('/:id')
   .get(getBookById)
-  .delete(authToken, authOwner, deleteBook)
-  .put(authToken, authOwner, updateBook)
+  .delete(authToken, authWriter, deleteBook)
+  .put(authToken, authWriter, updateBook)
 
 export default router

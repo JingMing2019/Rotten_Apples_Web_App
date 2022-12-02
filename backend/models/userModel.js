@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
-import { USER_ROLE_ADMIN, USER_ROLE_CUSTOMER, USER_ROLE_OWNER } from '../constants/userConstant.js'
+import { USER_ROLE_ADMIN, USER_ROLE_READER, USER_ROLE_WRITER } from '../constants/userConstant.js'
 import arrayUniquePlugin from 'mongoose-unique-array'
 import { bookSchema } from './bookModel.js'
 
@@ -29,8 +29,8 @@ const userSchema = mongoose.Schema(
     },
     role: {
       type: String,
-      enum: [USER_ROLE_CUSTOMER, USER_ROLE_OWNER, USER_ROLE_ADMIN],
-      default: USER_ROLE_CUSTOMER,
+      enum: [USER_ROLE_READER, USER_ROLE_WRITER, USER_ROLE_ADMIN],
+      default: USER_ROLE_READER,
       required: true,
     },
     bio: {

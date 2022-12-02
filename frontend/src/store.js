@@ -6,12 +6,12 @@ import {
   bookDetailsReducer,
   bookListReducer,
   bookRencentReviewedReducer,
-  saveYelpRestaurantReducer,
+  saveGoogleBookReducer,
   bookTopLikedReducer, bookCreateReviewReducer,
 } from './reducers/bookReducer'
 import {
   otherUserProfileReducer,
-  userLikeRestaurantReducer,
+  userLikeBookReducer,
   userLoginReducer,
   userProfileReducer,
   userRegisterReducer,
@@ -24,13 +24,13 @@ const reducer = combineReducers({
   bookDetails: bookDetailsReducer,
   bookRecentReviewed: bookRencentReviewedReducer,
   bookTopLiked: bookTopLikedReducer,
-  saveYelpRestaurant: saveYelpRestaurantReducer,
+  saveGoogleBook: saveGoogleBookReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userProfile: userProfileReducer,
   otherUserProfile: otherUserProfileReducer,
   updateUserProfile: userUpdateProfileReducer,
-  likeRestaurant: userLikeRestaurantReducer,
+  likeBook: userLikeBookReducer,
   bookCreateReview: bookCreateReviewReducer,
   deleteReview: deleteReviewReducer
 })

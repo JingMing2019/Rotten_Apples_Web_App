@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 import connectDB from './utils/connectDB.js'
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
 import userRoute from './routes/userRoutes.js'
-import restaurantRoutes from './routes/bookRoutes.js'
-import yelpSearchRoutes from './routes/googlebookSearchRoutes.js'
+import bookRoutes from './routes/bookRoutes.js'
+import googleSearchRoutes from './routes/googlebookSearchRoutes.js'
 import path from 'path'
 
 dotenv.config()
@@ -19,15 +19,15 @@ app.use(express.json())
 
 app.use('/api/users', userRoute)
 
-app.use('/api/restaurants', restaurantRoutes)
+app.use('/api/books', bookRoutes)
 
-app.use('/api/yelp', yelpSearchRoutes)
+app.use('/api/google', googleSearchRoutes)
 
 // deployment
 // get the current root path
 const __dirname = path.resolve()
 
-if (process.env.NODE_ENV = 'production') {
+if (process.env.NODE_ENV === 'production') {
   // server files in /frontend/build
   app.use(express.static(path.join(__dirname, '/frontend/build')))
   console.log(path)

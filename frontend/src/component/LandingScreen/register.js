@@ -12,7 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [location, setLocation] = useState('')
-  const [role, setRole] = useState('customer')
+  const [role, setRole] = useState('reader')
   const [selectPrivacy, setSelectPrivacy] = useState(false)
   const [formError, setFormError] = useState('')
 
@@ -114,8 +114,8 @@ const Register = () => {
                   defaultValue={role}
                   onChange={event => setRole(event.target.value)}
                 >
-                  <option value="customer">Customer</option>
-                  <option value="owner">Owner</option>
+                  <option value="reader">Reader</option>
+                  <option value="writer">Writer</option>
                   <option value="admin">Admin</option>
                 </Form.Select>
               </Form.Group>

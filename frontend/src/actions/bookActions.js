@@ -131,7 +131,7 @@ export const saveGoogleBook = (book) => async (dispatch) => {
   try {
     // fetching data
     dispatch({ type: GOOGLE_BOOK_SAVE_REQUEST })
-    const { data } = await axios.put('/api/yelp/books', book)
+    const { data } = await axios.put('/api/google/books', book)
 
     // fetch success
     dispatch({

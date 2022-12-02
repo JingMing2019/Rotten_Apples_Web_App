@@ -8,11 +8,11 @@ Deployed on Heroku: https://tootasty.herokuapp.com/tootasty/home
 [![Product Name Screen Shot]
 ![Screen Shot 2022-08-01 at 1 50 33 PM](https://user-images.githubusercontent.com/85295969/182211218-09724c1f-92d5-46b0-b6b0-f5cbf063a6e6.png)
 
-Rotten Apples is a full-stack website application, which can search, rate and review restaurants.
+Rotten Apples is a full-stack website application, which can search, rate and review books.
 https://tootasty.herokuapp.com/
 
-Rotten Apples implements authentication and authorization. Usera can only review restaurants and view their profile after logging in. What's more, 
-there are three diffrent roles: customer, owner, and admin, who have diffrent authority and view diffrente pages.
+Rotten Apples implements authentication and authorization. Usera can only review books and view their profile after logging in. What's more, 
+there are three different roles: reader, writer and admin, who have diffrent authority and view diffrente pages.
 
 ### Built With
 

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import expressAsyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
-import { USER_ROLE_ADMIN, USER_ROLE_OWNER } from '../constants/userConstant.js'
+import { USER_ROLE_ADMIN, USER_ROLE_WRITER } from '../constants/userConstant.js'
 
 // authenticate user by token before getting user profile
 export const authToken = expressAsyncHandler(async (req, res, next) => {
@@ -39,12 +39,12 @@ export const authAdmin = (req, res, next) => {
   }
 }
 
-export const authOwner = (req, res, next) => {
-  if (req.user && req.user.type === USER_ROLE_OWNER) {
+export const authWriter = (req, res, next) => {
+  if (req.user && req.user.type === USER_ROLE_WRITER) {
     next()
   } else {
     res.status(401)
-    throw new Error('User is not a owner')
+    throw new Error('User is not a writer')
   }
 }
 

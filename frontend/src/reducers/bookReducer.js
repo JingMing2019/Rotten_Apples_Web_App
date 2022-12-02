@@ -51,7 +51,7 @@ export const bookDetailsReducer = (state = {}, action) => {
   }
 }
 
-export const saveYelpRestaurantReducer = (state = {}, action) => {
+export const saveGoogleBookReducer = (state = {}, action) => {
   switch (action.type) {
     case GOOGLE_BOOK_SAVE_REQUEST:
       return { loading: true }

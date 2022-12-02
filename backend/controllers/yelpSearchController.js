@@ -1,6 +1,6 @@
 import yelp from 'yelp-fusion'
 import asyncHandler from 'express-async-handler'
-import Restaurant from '../models/restaurantModel.js'
+import Restaurant from '../models/bookModel.js'
 
 const client = yelp.client('1wlU5YQHyNhUchE04oorjxwgZMFenZJDInO5TzQP6dVNMSevR-0IiK0D5NbhfvewdjWArJ9DBvh5Kajp_XrqICOXLD9Y1GMBK-rMx2wlnQ_6PeeRTE6-TJPVX3NjYnYx')
 

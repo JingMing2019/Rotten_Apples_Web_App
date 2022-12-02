@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import BookScreen from './component/BookScreen/bookScreen'
 import HomeScreen from './component/HomeScreen/homescreen'
 import EditProfile from './component/EditProfile/editProfile'
-import TooTasty from './component'
+import RottenApples from './component'
 import LogInScreen from './component/LandingScreen/logInScreen'
 import Register from './component/LandingScreen/register'
 import PrivacyPolicy from './component/LandingScreen/privacyPolicy'
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<HomeScreen/>}/>
-            <Route path="tootasty" element={<TooTasty/>}>
+            <Route path="rottenapples" element={<RottenApples/>}>
               <Route path="login" element={<LogInScreen/>}/>
               <Route path="register" element={<Register/>}/>
               <Route path="register/privacy" element={<PrivacyPolicy/>}/>

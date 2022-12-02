@@ -8,7 +8,7 @@ const Searchbar = () => {
   const [keyword, setKeyword] = useState('')
 
   const searchButtonHandler = () => {
-    navigate(`/tootasty/search/${keyword}`)
+    navigate(`/rottenapples/search/${keyword}`)
   }
 
   return (
@@ -28,8 +28,7 @@ const Searchbar = () => {
             <button
               type="button"
               className="btn btn-outline-success hero-btn"
-              onClick={searchButtonHandler}
-            >
+              onClick={searchButtonHandler}>
               Search
             </button>
           </div>

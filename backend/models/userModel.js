@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import { USER_ROLE_ADMIN, USER_ROLE_CUSTOMER, USER_ROLE_OWNER } from '../constants/userConstant.js'
 import arrayUniquePlugin from 'mongoose-unique-array'
+import { bookSchema } from './bookModel.js'
 
 const userSchema = mongoose.Schema(
   {
@@ -42,11 +43,11 @@ const userSchema = mongoose.Schema(
       required: true,
       default: 'Boston'
     },
-    likedBook: [
+    likedBooks: [
       {
         name: { type: String, required: true },
         image_url: { type: String, required: true },
-        restaurant: {
+        book: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
           unique: true,
@@ -54,10 +55,11 @@ const userSchema = mongoose.Schema(
         },
       }
     ],
-    ownedBook: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Book',
-    },
+    ownedBooks: [bookSchema]
+    // ownedBooks: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Book',
+    // },
   },
   {
     timestamps: true,

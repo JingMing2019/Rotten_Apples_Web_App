@@ -22,7 +22,7 @@ const NavbarComp = () => {
     <header>
       <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
-          <Nav.Link as={Link} to="/tootasty/home"><Navbar.Brand>TooTasty</Navbar.Brand></Nav.Link>
+          <Nav.Link as={Link} to="/rottenapples/home"><Navbar.Brand>Rotten Apples</Navbar.Brand></Nav.Link>
           <Navbar.Toggle aria-controls="navbarScroll"/>
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -30,18 +30,18 @@ const NavbarComp = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link as={Link} to="/tootasty/home">Home</Nav.Link>
-              <Nav.Link as={Link} to="/tootasty/search">Search</Nav.Link>
+              <Nav.Link as={Link} to="/rottenapples/home">Home</Nav.Link>
+              <Nav.Link as={Link} to="/rottenapples/search">Search</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
-                  {userInfo.role === 'owner' && (
-                    <LinkContainer to={`/tootasty/restaurant/${userInfo.ownedRestaurant}`}>
-                      <NavDropdown.Item>My Restaurant</NavDropdown.Item>
+                  {userInfo.role === 'writer' && (
+                    <LinkContainer to={`/rottenapples/book/${userInfo.ownedBooks}`}>
+                      <NavDropdown.Item>My Books</NavDropdown.Item>
                     </LinkContainer>
                   )}
-                  <LinkContainer to="/tootasty/profile">
+                  <LinkContainer to="/rottenapples/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
@@ -50,13 +50,13 @@ const NavbarComp = () => {
                 <>
                   <Link
                     className="text-white"
-                    to="/tootasty/login"
+                    to="/rottenapples/login"
                   >
                     <button className="btn btn-link-white">Log In</button>
                   </Link>
                   <Link
                     className="text-white"
-                    to="/tootasty/register"
+                    to="/rottenapples/register"
                   >
                     <button className="btn btn-outline-white">Sign up</button>
                   </Link>

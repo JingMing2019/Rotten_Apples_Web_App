@@ -1,7 +1,7 @@
 import expressAsyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
-import Restaurant from '../models/restaurantModel.js'
+import Restaurant from '../models/bookModel.js'
 
 // @desc    register new suer
 // @routes   POST /api/users

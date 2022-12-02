@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom'
 import React from 'react'
 
-const TooTasty = () => {
+const RottenApples = () => {
   return (
     <Outlet/>
   )
 }
 
-export default TooTasty
+export default RottenApples;

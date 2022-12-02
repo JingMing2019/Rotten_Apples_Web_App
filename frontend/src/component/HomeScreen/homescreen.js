@@ -3,6 +3,7 @@ import TopLikedBook from './topLikedBook'
 import RecentReviewedBook from './recentReviewedBook'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import appLogo from '../../vendors/img/apple.png'
 
 const HomeScreen = () => {
 
@@ -18,8 +19,7 @@ const HomeScreen = () => {
               className="mt-5"
               alt="webLogo"
               height="250px"
-              src="/img/apple.png"
-            />
+              src={appLogo}/>
           </div>
           <Searchbar/>
         </section>

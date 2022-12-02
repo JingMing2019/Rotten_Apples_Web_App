@@ -5,6 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/userActions'
 import './nav.css'
+import {useLocation} from "react-router";
 
 const NavbarComp = () => {
   const dispatch = useDispatch()
@@ -18,19 +19,19 @@ const NavbarComp = () => {
     navigate('/')
   }
 
+  const {pathname} = useLocation();
+  const paths = pathname.split('/');
+  const active = paths.length >= 3? paths[2] : 'home';
+
   return (
     <header>
-      <Navbar variant="dark" expand="lg" className="navbar-bg-color">
+      <Navbar variant="light" expand="lg" className="navbar-bg-color">
         <Container>
           <Nav.Link as={Link} to="/rottenapples/home"><Navbar.Brand>Rotten Apples</Navbar.Brand></Nav.Link>
           <Navbar.Toggle aria-controls="navbarScroll"/>
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="mr-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
-              <Nav.Link as={Link} to="/rottenapples/home">Home</Nav.Link>
+            <Nav className="mr-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+              <Nav.Link as={Link} to="/rottenapples/home" className={`${active === 'home' ? 'active' : ""}`}>Home</Nav.Link>
               <Nav.Link as={Link} to="/rottenapples/search">Search</Nav.Link>
             </Nav>
             <Nav className="ms-auto">

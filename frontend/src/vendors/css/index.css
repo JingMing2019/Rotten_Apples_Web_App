@@ -127,4 +127,9 @@ body {
 .height-100vh {
     height: 100vh;
 }
+.navbar-bg-color {
+    background: linear-gradient(200deg, #68CD4F, #82E0AA);
+    /*background-color: #68CD4F;*/
+}
+
 

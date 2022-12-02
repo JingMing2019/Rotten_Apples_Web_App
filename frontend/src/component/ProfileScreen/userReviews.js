@@ -1,10 +1,10 @@
 import React from 'react'
-import RecentReviewedRes from '../HomeScreen/recentReviewedRes'
+import RecentReviewedBook from '../HomeScreen/recentReviewedBook'
 
 const UserReviews = () => {
   return (
     <>
-      {RecentReviewedRes()}
+      {RecentReviewedBook()}
     </>
   )
 }

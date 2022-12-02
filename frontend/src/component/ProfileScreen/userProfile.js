@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import UserCard from './userCard'
 import UserDetail from './userDetail'
 import UserReviews from './userReviews'
-import FavouriteRes from '../HomeScreen/favouriteRes'
+import FavouriteBook from '../HomeScreen/favouriteBook'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserProfile } from '../../actions/userActions'
@@ -37,7 +37,7 @@ const UserProfile = () => {
             <div className="col-8">
               <UserDetail user={user}/>
               <UserReviews/>
-              {user.likedRestaurant && <FavouriteRes restaurants={user.likedRestaurant.data}/>}
+              {user.likedBook && <FavouriteBook books={user.likedBook.data}/>}
             </div>
           </div>
         </section>

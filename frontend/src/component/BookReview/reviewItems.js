@@ -27,7 +27,7 @@ const ReviewItems = ({ review }) => {
               review.isAnonymous?
                   <LetterAvatars name="Someone Else" isAnonymous={review.isAnonymous}/>
                   :
-                  <Link to={`/rottenapples/profile/${review.user}`} className="non-line">
+                  <Link to={`/profile/${review.user}`} className="non-line">
                     <LetterAvatars name={review.name}/>
                   </Link>
             }
@@ -39,7 +39,7 @@ const ReviewItems = ({ review }) => {
               review.isAnonymous?
                 <strong>Anonymous</strong>
                 :
-                <Link to={`/rottenapples/profile/${review.user}`} className="non-line">
+                <Link to={`/profile/${review.user}`} className="non-line">
                   <strong className='color-black'>{review.name}</strong>
                 </Link>
             }

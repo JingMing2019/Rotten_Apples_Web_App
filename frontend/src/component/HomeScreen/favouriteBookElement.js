@@ -5,7 +5,7 @@ import { Button, Card } from 'react-bootstrap'
 const FavouriteBookElement = ({ book }) => {
   return (
     <Card className="my-2 p-2 border-0 text-center">
-      <Link to={`/rottenapples/book/${book.book}`}>
+      <Link to={`/book/${book.book}`}>
         <Card.Img variant="top" src={book.image_url} alt=""/>
       </Link>
       <Card.Body>
@@ -15,7 +15,7 @@ const FavouriteBookElement = ({ book }) => {
           &nbsp;liked&nbsp;
           <i className="fa-solid fa-heart"/>
         </Card.Text>
-        <Link to={`/rottenapples/book/${book.book}`}>
+        <Link to={`/book/${book.book}`}>
           <Button variant="primary">Review Again</Button>
         </Link>
       </Card.Body>

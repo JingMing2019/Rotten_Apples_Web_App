@@ -8,7 +8,7 @@ const Searchbar = () => {
   const [keyword, setKeyword] = useState('')
 
   const searchButtonHandler = () => {
-    navigate(`/rottenapples/search/${keyword}`)
+    navigate(`/search/${keyword}`)
   }
 
   return (

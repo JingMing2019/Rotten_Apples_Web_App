@@ -20,7 +20,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate('/rottenapples/login')
+      navigate('/login')
     } else {
       dispatch(getUserProfile())
     }

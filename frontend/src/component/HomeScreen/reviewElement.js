@@ -5,7 +5,7 @@ const ReviewElement = ({ book }) => {
   return (
     <>
       <div className="m-3 col-12 col-md-3">
-        <Link to={`/rottenapples/book/${book.book._id}`}>
+        <Link to={`/book/${book.book._id}`}>
           <div className="card homepage-card-img">
             <img
               src={book.book.image_url}

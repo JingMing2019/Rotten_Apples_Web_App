@@ -23,7 +23,7 @@ const EditProfileItem = ({ profile }) => {
       location,
     }
     dispatch(updateUserProfile(updatedProfile))
-    navigate('/rottenapples/profile')
+    navigate('/profile')
   }
 
   useEffect(() => {

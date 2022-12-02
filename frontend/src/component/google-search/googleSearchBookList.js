@@ -18,21 +18,20 @@ const GoogleSearchBookList = ({ keyword }) => {
 
   useEffect(() => {
     if (savedBook) {
-      navigate(`/rottenapples/book/${savedBook._id}`)
+      navigate(`/book/${savedBook._id}`)
       // reset saved book state
       dispatch(resetSaveGoogleBook())
     } else {
-      searchByKeyword()
+      searchByKeyword().then(r => {})
     }
   }, [dispatch, savedBook])
 
 
   const searchByKeyword = async () => {
     const searchKeywordStr = keywordSearchRef.current.value || keyword || 'boston'
-    navigate(`/rottenapples/search/${searchKeywordStr}`)
+    navigate(`/search/${searchKeywordStr}`)
     const response = await axios.get(`/api/google/businesses/search/${searchKeywordStr}`)
     setBooks(response.data.businesses)
-
   }
 
   return (
@@ -49,9 +48,7 @@ const GoogleSearchBookList = ({ keyword }) => {
             />
           </div>
           <div className="col-1">
-            <button onClick={searchByKeyword}
-                    type="button" className="btn btn-outline-primary hero-btn">Search
-            </button>
+            <button onClick={searchByKeyword} type="button" className="btn btn-outline-success hero-btn">Search</button>
           </div>
         </div>
       </div>

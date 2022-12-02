@@ -3,12 +3,12 @@ import { composeWithDevTools } from '@redux-devtools/extension'
 import thunk from 'redux-thunk'
 import { deleteReviewReducer, reviewReducer } from './reducers/reviewReducer'
 import {
-  restaurantDetailsReducer,
-  restaurantListReducer,
-  restaurantRencentReviewedReducer,
+  bookDetailsReducer,
+  bookListReducer,
+  bookRencentReviewedReducer,
   saveYelpRestaurantReducer,
-  restaurantTopLikedReducer, restaurantCreateReviewReducer,
-} from './reducers/restaurantReducer'
+  bookTopLikedReducer, bookCreateReviewReducer,
+} from './reducers/bookReducer'
 import {
   otherUserProfileReducer,
   userLikeRestaurantReducer,
@@ -20,10 +20,10 @@ import {
 
 const reducer = combineReducers({
   reviews: reviewReducer,
-  restaurantList: restaurantListReducer,
-  restaurantDetails: restaurantDetailsReducer,
-  restaurantRecentReviewed: restaurantRencentReviewedReducer,
-  restaurantTopLiked: restaurantTopLikedReducer,
+  bookList: bookListReducer,
+  bookDetails: bookDetailsReducer,
+  bookRecentReviewed: bookRencentReviewedReducer,
+  bookTopLiked: bookTopLikedReducer,
   saveYelpRestaurant: saveYelpRestaurantReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -31,7 +31,7 @@ const reducer = combineReducers({
   otherUserProfile: otherUserProfileReducer,
   updateUserProfile: userUpdateProfileReducer,
   likeRestaurant: userLikeRestaurantReducer,
-  restaurantCreateReview: restaurantCreateReviewReducer,
+  bookCreateReview: bookCreateReviewReducer,
   deleteReview: deleteReviewReducer
 })
 

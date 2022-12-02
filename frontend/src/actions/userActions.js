@@ -13,17 +13,17 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
-  USER_LIKE_RESTAURANT_REQUEST,
-  USER_LIKE_RESTAURANT_SUCCESS,
-  USER_LIKE_RESTAURANT_FAIL,
-  USER_UNLIKE_RESTAURANT_REQUEST,
-  USER_UNLIKE_RESTAURANT_SUCCESS,
-  USER_UNLIKE_RESTAURANT_FAIL,
+  USER_LIKE_BOOK_REQUEST,
+  USER_LIKE_BOOK_SUCCESS,
+  USER_LIKE_BOOK_FAIL,
+  USER_UNLIKE_BOOK_REQUEST,
+  USER_UNLIKE_BOOK_SUCCESS,
+  USER_UNLIKE_BOOK_FAIL,
   OTHER_USER_DETAILS_REQUEST,
   OTHER_USER_DETAILS_SUCCESS,
   OTHER_USER_DETAILS_FAIL
 } from '../constants/userConstants'
-import { RESTAURANT_RECENT_REVIEWED_RESET } from '../constants/restaurantConstants'
+import { BOOK_RECENT_REVIEWED_RESET } from '../constants/bookConstants'
 
 export const register = (user) => async (dispatch) => {
   try {
@@ -104,7 +104,7 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: USER_LOGOUT })
-  dispatch({ type: RESTAURANT_RECENT_REVIEWED_RESET })
+  dispatch({ type: BOOK_RECENT_REVIEWED_RESET })
 
 }
 
@@ -220,10 +220,10 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   }
 }
 
-export const likeRestaurant = (restaurant) => async (dispatch, getState) => {
+export const likeBook = (book) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: USER_LIKE_RESTAURANT_REQUEST
+      type: USER_LIKE_BOOK_REQUEST
     })
 
     const { userLogin: { userInfo } } = getState()
@@ -236,20 +236,20 @@ export const likeRestaurant = (restaurant) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.put(
-      `/api/users/restaurant/${restaurant._id}`,
+      `/api/users/book/${book._id}`,
       {},
       config
     )
 
     dispatch({
-      type: USER_LIKE_RESTAURANT_SUCCESS,
+      type: USER_LIKE_BOOK_SUCCESS,
       payload: data
     })
 
 
   } catch (error) {
     dispatch({
-      type: USER_LIKE_RESTAURANT_FAIL,
+      type: USER_LIKE_BOOK_FAIL,
       payload: error.response && error.response.data.message
         ? error.response.data.message
         : error.message
@@ -257,10 +257,10 @@ export const likeRestaurant = (restaurant) => async (dispatch, getState) => {
   }
 }
 
-export const unLikeRestaurant = (restaurant) => async (dispatch, getState) => {
+export const unLikeBook = (book) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: USER_UNLIKE_RESTAURANT_REQUEST
+      type: USER_UNLIKE_BOOK_REQUEST
     })
 
     const { userLogin: { userInfo } } = getState()
@@ -273,19 +273,19 @@ export const unLikeRestaurant = (restaurant) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.delete(
-      `/api/users/restaurant/${restaurant._id}`,
+      `/api/users/book/${book._id}`,
       config
     )
 
     dispatch({
-      type: USER_UNLIKE_RESTAURANT_SUCCESS,
+      type: USER_UNLIKE_BOOK_SUCCESS,
       payload: data
     })
 
 
   } catch (error) {
     dispatch({
-      type: USER_UNLIKE_RESTAURANT_FAIL,
+      type: USER_UNLIKE_BOOK_FAIL,
       payload: error.response && error.response.data.message
         ? error.response.data.message
         : error.message

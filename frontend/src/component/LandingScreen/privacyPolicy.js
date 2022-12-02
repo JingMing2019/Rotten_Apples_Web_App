@@ -117,11 +117,11 @@ const PrivacyPolicy = () => {
               <p>
                 <strong>Website</strong> refers to Too Tasty, accessible from{" "}
                 <a
-                  href="http://www.tootasty.com"
+                  href="http://www.rottenapples.com"
                   rel="external nofollow noopener"
                   target="_blank"
                 >
-                  http://www.tootasty.com
+                  http://www.rottenapples.com
                 </a>
               </p>
             </li>
@@ -555,7 +555,7 @@ const PrivacyPolicy = () => {
             us:
           </p>
           <ul>
-            <li>By email: office@tootasty.com</li>
+            <li>By email: office@rottenapples.com</li>
           </ul>
         </div>
       </div>

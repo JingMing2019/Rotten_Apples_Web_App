@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating'
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography'
 import { createBookReview } from '../../actions/bookActions'
-import { RESTAURANT_CREATE_REVIEW_RESET } from '../../constants/bookConstants'
+import { BOOK_CREATE_REVIEW_RESET } from '../../constants/bookConstants'
 import {FormControlLabel} from "@mui/material";
 
 const WriteReview = () => {
@@ -36,7 +36,7 @@ const WriteReview = () => {
     if (createReviewSuccess) {
       setComment('')
       setRating(0)
-      dispatch({ type: RESTAURANT_CREATE_REVIEW_RESET })
+      dispatch({ type: BOOK_CREATE_REVIEW_RESET })
     }
   }, [createReviewSuccess])
 

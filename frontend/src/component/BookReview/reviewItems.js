@@ -27,7 +27,7 @@ const ReviewItems = ({ review }) => {
               review.isAnonymous?
                   <LetterAvatars name="Someone Else" isAnonymous={review.isAnonymous}/>
                   :
-                  <Link to={`/tootasty/profile/${review.user}`} className="non-line">
+                  <Link to={`/rottenapples/profile/${review.user}`} className="non-line">
                     <LetterAvatars name={review.name}/>
                   </Link>
             }
@@ -39,7 +39,7 @@ const ReviewItems = ({ review }) => {
               review.isAnonymous?
                 <strong>Anonymous</strong>
                 :
-                <Link to={`/tootasty/profile/${review.user}`} className="non-line">
+                <Link to={`/rottenapples/profile/${review.user}`} className="non-line">
                   <strong className='color-black'>{review.name}</strong>
                 </Link>
             }
@@ -48,10 +48,7 @@ const ReviewItems = ({ review }) => {
           <br/>
           {userInfo && userInfo.role === 'admin' && (
             <Link to="#">
-              <i
-                onClick={deleteHandler}
-                className="fas fa-remove fa-pull-right"
-              ></i>
+              <i onClick={deleteHandler} className="fas fa-remove fa-pull-right"/>
             </Link>
           )}
         </div>

@@ -8,7 +8,7 @@ const NavSearchBar = ({login}) => {
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Link to="/rottenapples/home">
-                        <p className="navbar-brand">TooTasty</p>
+                        <p className="navbar-brand">Rotten Apples</p>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#navbarColor01" aria-controls="navbarColor01"

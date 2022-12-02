@@ -1,8 +1,8 @@
 import {
-  RESTAURANT_DELETE_REVIEW_FAIL,
-  RESTAURANT_DELETE_REVIEW_REQUEST,
-  RESTAURANT_DELETE_REVIEW_SUCCESS
-} from '../constants/restaurantConstants'
+  BOOK_DELETE_REVIEW_FAIL,
+  BOOK_DELETE_REVIEW_REQUEST,
+  BOOK_DELETE_REVIEW_SUCCESS
+} from '../constants/bookConstants'
 import axios from 'axios'
 import { logout } from './userActions'
 
@@ -18,9 +18,9 @@ export const createReview = async (dispatch, review) => {
   })
 }
 
-export const deleteReview = (restaurantId, reviewId) => async (dispatch, getState) => {
+export const deleteReview = (bookId, reviewId) => async (dispatch, getState) => {
   try {
-    dispatch({ type: RESTAURANT_DELETE_REVIEW_REQUEST })
+    dispatch({ type: BOOK_DELETE_REVIEW_REQUEST })
 
     const {
       userLogin: { userInfo },
@@ -33,10 +33,10 @@ export const deleteReview = (restaurantId, reviewId) => async (dispatch, getStat
       },
     }
 
-    await axios.delete(`/api/restaurants/${restaurantId}/reviews/${reviewId}`, config)
+    await axios.delete(`/api/books/${bookId}/reviews/${reviewId}`, config)
 
     dispatch({
-      type: RESTAURANT_DELETE_REVIEW_SUCCESS,
+      type: BOOK_DELETE_REVIEW_SUCCESS,
     })
   } catch (error) {
     const message =
@@ -47,7 +47,7 @@ export const deleteReview = (restaurantId, reviewId) => async (dispatch, getStat
       dispatch(logout())
     }
     dispatch({
-      type: RESTAURANT_DELETE_REVIEW_FAIL,
+      type: BOOK_DELETE_REVIEW_FAIL,
       payload: message,
     })
   }

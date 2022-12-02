@@ -2,9 +2,9 @@ import React from 'react'
 import { Navbar, NavDropdown, Nav, Container } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
-import './nav.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/userActions'
+import './nav.css'
 
 const NavbarComp = () => {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const NavbarComp = () => {
 
   return (
     <header>
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar variant="dark" expand="lg" className="navbar-bg-color">
         <Container>
           <Nav.Link as={Link} to="/rottenapples/home"><Navbar.Brand>Rotten Apples</Navbar.Brand></Nav.Link>
           <Navbar.Toggle aria-controls="navbarScroll"/>
@@ -52,7 +52,7 @@ const NavbarComp = () => {
                     className="text-white"
                     to="/rottenapples/login"
                   >
-                    <button className="btn btn-link-white">Log In</button>
+                    <button className="btn btn-link-white">Log in</button>
                   </Link>
                   <Link
                     className="text-white"

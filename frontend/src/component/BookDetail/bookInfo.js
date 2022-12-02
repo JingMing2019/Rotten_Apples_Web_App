@@ -94,7 +94,7 @@ const BookInfo = ({ bookInfo }) => {
           <button
             type="button"
             className="btn btn-primary ms-4"
-            onClick={likeRestaurantHandler}
+            onClick={likeBookHandler}
             disabled={!userInfo}
           >
             {
@@ -112,4 +112,4 @@ const BookInfo = ({ bookInfo }) => {
     </>
   )
 }
-export default RestaurantInfo
+export default BookInfo

@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleBookSearchBookList from '../googlebook-search/googlebookSearchBookList'
+import GoogleBookSearchBookList from '../google-search/googleSearchBookList'
 import { useParams } from 'react-router-dom'
 
 const SearchScreen = () => {

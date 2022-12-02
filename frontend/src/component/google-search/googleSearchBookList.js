@@ -1,37 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import YelpSearchListItem from './yelpSearchListItem'
+import GoogleSearchListItem from './googleSearchListItem'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { resetSaveYelpRestaurant } from '../../actions/restaurantActions'
+import { resetSaveGoogleBook } from '../../actions/bookActions'
 
-const YelpSearchResList = ({ keyword }) => {
+const GoogleSearchBookList = ({ keyword }) => {
   const keywordSearchRef = useRef()
-  const [restaurants, setRestaurants] = useState()
+  const [books, setBooks] = useState()
   const [keywordInput, setKeywordInput] = useState(keyword)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const saveYelpRestaurant = useSelector(state => state.saveYelpRestaurant)
-  const { restaurant: savedRestaurant } = saveYelpRestaurant
+  const saveGoogleBook = useSelector(state => state.saveGoogleBook)
+  const { book: savedBook } = saveGoogleBook
 
   useEffect(() => {
-    if (savedRestaurant) {
-      navigate(`/tootasty/restaurant/${savedRestaurant._id}`)
-      // reset saved restaurant state
-      dispatch(resetSaveYelpRestaurant())
+    if (savedBook) {
+      navigate(`/rottenapples/book/${savedBook._id}`)
+      // reset saved book state
+      dispatch(resetSaveGoogleBook())
     } else {
       searchByKeyword()
     }
-  }, [dispatch, savedRestaurant])
+  }, [dispatch, savedBook])
 
 
   const searchByKeyword = async () => {
     const searchKeywordStr = keywordSearchRef.current.value || keyword || 'boston'
-    navigate(`/tootasty/search/${searchKeywordStr}`)
-    const response = await axios.get(`/api/yelp/businesses/search/${searchKeywordStr}`)
-    setRestaurants(response.data.businesses)
+    navigate(`/rottenapples/search/${searchKeywordStr}`)
+    const response = await axios.get(`/api/google/businesses/search/${searchKeywordStr}`)
+    setBooks(response.data.businesses)
 
   }
 
@@ -56,12 +56,12 @@ const YelpSearchResList = ({ keyword }) => {
         </div>
       </div>
       <ul className="list-group">
-        {restaurants && restaurants.map(r => (
-          <YelpSearchListItem restaurant={r} key={r.id}/>
+        {books && books.map(r => (
+          <GoogleSearchListItem book={r} key={r.id}/>
         ))}
       </ul>
     </div>
   )
 }
 
-export default YelpSearchResList
+export default GoogleSearchBookList

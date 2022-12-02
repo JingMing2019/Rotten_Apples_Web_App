@@ -60,7 +60,7 @@ const LogInScreen = () => {
               >
                 Log In
               </button>
-              <span className="text-white m-1">New to TooTasty? <Link to="/register">Sign up</Link></span>
+              <span className="text-white m-1">New to Rotten Apples? <Link to="/register">Sign up</Link></span>
             </div>
           </div>
         </section>

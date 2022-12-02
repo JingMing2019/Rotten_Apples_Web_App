@@ -13,10 +13,10 @@ import {
   BOOK_RECENT_REVIEWED_REQUEST,
   BOOK_RECENT_REVIEWED_SUCCESS,
   BOOK_RECENT_REVIEWED_FAIL,
-  YELP_BOOK_SAVE_REQUEST,
-  YELP_BOOK_SAVE_SUCCESS,
-  YELP_BOOK_SAVE_FAIL,
-  YELP_BOOK_SAVE_RESET,
+  GOOGLE_BOOK_SAVE_REQUEST,
+  GOOGLE_BOOK_SAVE_SUCCESS,
+  GOOGLE_BOOK_SAVE_FAIL,
+  GOOGLE_BOOK_SAVE_RESET,
   BOOK_TOP_RATED_REQUEST,
   BOOK_TOP_RATED_SUCCESS,
   BOOK_TOP_RATED_FAIL,
@@ -53,13 +53,13 @@ export const bookDetailsReducer = (state = {}, action) => {
 
 export const saveYelpRestaurantReducer = (state = {}, action) => {
   switch (action.type) {
-    case YELP_BOOK_SAVE_REQUEST:
+    case GOOGLE_BOOK_SAVE_REQUEST:
       return { loading: true }
-    case YELP_BOOK_SAVE_SUCCESS:
+    case GOOGLE_BOOK_SAVE_SUCCESS:
       return { loading: false, book: action.payload }
-    case YELP_BOOK_SAVE_FAIL:
+    case GOOGLE_BOOK_SAVE_FAIL:
       return { loading: false, error: action.payload }
-    case YELP_BOOK_SAVE_RESET:
+    case GOOGLE_BOOK_SAVE_RESET:
       return {}
     default:
       return state

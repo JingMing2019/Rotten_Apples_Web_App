@@ -122,7 +122,7 @@ export const getUserProfileById = expressAsyncHandler(async (req, res) => {
 // @desc    like restaurant
 // @routes   PUT /api/users/restaurant/:id
 // @access  Private
-export const likeRestaurant = expressAsyncHandler(async (req, res) => {
+export const likeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   let restaurant = await Restaurant.findById(req.params.id)
@@ -152,7 +152,7 @@ export const likeRestaurant = expressAsyncHandler(async (req, res) => {
 // @desc    unlike restaurant
 // @routes   DELETE /api/users/restaurant/:id
 // @access  Private
-export const unlikeRestaurant = expressAsyncHandler(async (req, res) => {
+export const unlikeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   let restaurant = await Restaurant.findById(req.params.id)

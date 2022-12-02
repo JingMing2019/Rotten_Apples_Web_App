@@ -4,7 +4,7 @@ import Restaurant from '../models/bookModel.js'
 
 const client = yelp.client('1wlU5YQHyNhUchE04oorjxwgZMFenZJDInO5TzQP6dVNMSevR-0IiK0D5NbhfvewdjWArJ9DBvh5Kajp_XrqICOXLD9Y1GMBK-rMx2wlnQ_6PeeRTE6-TJPVX3NjYnYx')
 
-export const findResByKeyword = asyncHandler(async (req, res) => {
+export const findBookByKeyword = asyncHandler(async (req, res) => {
   const keyword = req.params['keyword']
 
   const restaurants = await client.search({
@@ -17,7 +17,7 @@ export const findResByKeyword = asyncHandler(async (req, res) => {
   // const prettyJson = JSON.stringify(restaurants.jsonBody, null, 4)
 })
 
-export const findResDetailByID = asyncHandler(async (req, res) => {
+export const findBookDetailByID = asyncHandler(async (req, res) => {
   const _id = req.params._id
   const restaurant = await client.business(_id)
 
@@ -29,7 +29,7 @@ export const findResDetailByID = asyncHandler(async (req, res) => {
 // @desc    Save a restaurant from Yelp
 // @route   POST /api/yelp/restaurants
 // @access  Public
-export const saveYelpRestaurant = asyncHandler(async (req, res) => {
+export const saveGoogleBookBook = asyncHandler(async (req, res) => {
   const restaurant = req.body
   const existed = await Restaurant.findOne({ yelp_id: restaurant.id })
 

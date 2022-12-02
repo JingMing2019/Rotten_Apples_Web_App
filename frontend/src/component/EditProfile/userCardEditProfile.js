@@ -17,7 +17,7 @@ const UserCardEditProfile = ({ profile }) => {
           </h3>
           <p className="text-white">{profile.bio}</p>
 
-          <Link className="btn btn-outline-white" to="/profile">Back</Link>
+          <Link className="btn btn-outline-black" to="/profile">Back</Link>
         </div>
       </div>
     </>

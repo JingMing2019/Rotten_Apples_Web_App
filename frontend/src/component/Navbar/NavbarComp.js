@@ -50,10 +50,10 @@ const NavbarComp = () => {
               ) : (
                 <>
                   <Link className="text-white" to="/login">
-                    <button className="btn btn-link-white">Log in</button>
+                    <button className="btn btn-link-black">Log in</button>
                   </Link>
                   <Link className="text-white" to="/register">
-                    <button className="btn btn-outline-white">Sign up</button>
+                    <button className="btn btn-outline-black">Sign up</button>
                   </Link>
                 </>
               )}

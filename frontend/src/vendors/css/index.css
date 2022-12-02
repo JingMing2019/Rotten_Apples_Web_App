@@ -15,13 +15,13 @@ body {
     background-size: cover;
     position: relative;
 }
-.btn-outline-white {
-    color: #ffffff;
-    border-color: #ffffff;
+.btn-outline-black {
+    color: black;
+    border-color: black;
 }
-.btn-link-white {
+.btn-link-black {
     font-weight: 400;
-    color: #ffffff;
+    color: black;
     text-decoration: underline;
 }
 .hero-btn:hover {

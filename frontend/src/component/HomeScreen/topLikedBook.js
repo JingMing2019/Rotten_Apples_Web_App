@@ -16,7 +16,7 @@ const TopLikedBook = () => {
   return (
     <>
       <div className="mt-5 m-3 flex">
-        <h1 className="text-white">Top-liked Books</h1>
+        <h1 className="text-black">Top-liked Books</h1>
       </div>
       <Row className="justify-content-md-center">
         {books &&

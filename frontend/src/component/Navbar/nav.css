@@ -1,11 +1,11 @@
-.btn-outline-white {
-    color: #ffffff!important;
-    border-color: #ffffff!important;
+.btn-outline-black {
+    color: black!important;
+    border-color: black!important;
     text-decoration:none!important;
 }
-.btn-link-white {
+.btn-link-black {
     font-weight: 400;
-    color: #ffffff!important;
+    color: black!important;
     text-decoration:none!important;
 }
 

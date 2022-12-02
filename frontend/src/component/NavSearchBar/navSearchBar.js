@@ -24,8 +24,8 @@ const NavSearchBar = ({login}) => {
                                 <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                             </li>
                         </ul>
-                        <button type="button" className="btn btn-link-white">Log In</button>
-                        <button type="button" className="btn btn-outline-white">Sign up</button>
+                        <button type="button" className="btn btn-link-black">Log In</button>
+                        <button type="button" className="btn btn-outline-black">Sign up</button>
                    </div>
                 </div>
             </nav>

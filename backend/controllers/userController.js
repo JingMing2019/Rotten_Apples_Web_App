@@ -119,8 +119,8 @@ export const getUserProfileById = expressAsyncHandler(async (req, res) => {
   }
 })
 
-// @desc    like restaurant
-// @routes   PUT /api/users/restaurant/:id
+// @desc    like book
+// @routes   PUT /api/users/book/:id
 // @access  Private
 export const likeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
@@ -135,7 +135,7 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
     })
     const updatedUser = await user.save()
 
-    // add restaurant likes
+    // add book likes
     book.stats.likes = book.stats.likes + 1
     await book.save()
 
@@ -149,14 +149,14 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
   }
 })
 
-// @desc    unlike restaurant
-// @routes   DELETE /api/users/restaurant/:id
+// @desc    unlike book
+// @routes   DELETE /api/users/book/:id
 // @access  Private
 export const unlikeBook = expressAsyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   let book = await Book.findById(req.params.id)
-  // const restaurant = await Restaurant.findById(req.restaurant._id)
+  // const book = await Book.findById(req.book._id)
   // update user liked list
   if (user && book) {
     user.likedBook = user.likedBook.filter(
@@ -164,7 +164,7 @@ export const unlikeBook = expressAsyncHandler(async (req, res) => {
     )
     const updatedUser = await user.save()
 
-    // add restaurant likes
+    // add book likes
     book.stats.likes = book.stats.likes - 1
     await book.save()
 

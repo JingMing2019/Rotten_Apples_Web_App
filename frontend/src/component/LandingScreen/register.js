@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../../actions/userActions'
 import Message from '../Message/Message'
+import "./index.css"
 
 const Register = () => {
   const [firstname, setFirstname] = useState('')
@@ -126,19 +127,19 @@ const Register = () => {
                     onChange={() => setSelectPrivacy(!selectPrivacy)}/>
                   <Form.Check.Label>
                     <span className="text-white">I agree to </span>
-                    <Link to="/register/privacy">Privacy Policy</Link>
+                    <Link to="/register/privacy"><span className='wd-text'>Privacy Policy</span></Link>
                   </Form.Check.Label>
                 </Form.Check>
               </Form.Group>
 
               <button type="submit"
-                      className="btn btn-outline-primary hero-btn"
+                      className="btn btn-outline-success hero-btn"
                       disabled={!selectPrivacy}
               >
                 Sign up
               </button>
               <span className="text-white m-1">
-                Already have an account?<Link to="/login">Log in</Link>
+                Already have an account?<Link to="/login"><span className='wd-text'>Log in</span></Link>
               </span>
             </Form>
           </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/userActions'
 import Message from '../Message/Message'
+import "./index.css"
 
 const LogInScreen = () => {
 
@@ -55,12 +56,12 @@ const LogInScreen = () => {
               />
               <button
                 type="button"
-                className="btn btn-outline-primary hero-btn"
+                className="btn btn-outline-success hero-btn"
                 onClick={submitLogin}
               >
                 Log In
               </button>
-              <span className="text-white m-1">New to Rotten Apples? <Link to="/register">Sign up</Link></span>
+              <span className="text-white m-1">New to Rotten Apples? <Link to="/register"><span className="wd-text"> Sign up</span></Link></span>
             </div>
           </div>
         </section>

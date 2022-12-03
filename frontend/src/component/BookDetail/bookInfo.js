@@ -68,7 +68,7 @@ const BookInfo = ({ bookInfo }) => {
       </div>
       <div className="position-absolute img-title-pos">
         <h1 className="book-title ">{book.name}</h1>
-        <ul className="list-inline font-orange-bolder">
+        <ul className="list-inline font-green-bolder">
           <li className="list-inline-item">
             <RatingStar value={book.rating}/>
           </li>
@@ -77,12 +77,12 @@ const BookInfo = ({ bookInfo }) => {
           </li>
         </ul>
 
-        <ul className="list-inline font-orange-bolder">
+        <ul className="list-inline font-green-bolder">
           <li className="list-inline-item"><i
             className="fa-solid fa-calendar-days"></i> {book.is_closed ? 'Closed' : 'Open'}
           </li>
         </ul>
-        <ul className="list-inline font-orange-bolder">
+        <ul className="list-inline font-green-bolder">
           <li className="list-inline-item"><i className="fa-solid fa-location-arrow"></i> {book.address}
           </li>
         </ul>

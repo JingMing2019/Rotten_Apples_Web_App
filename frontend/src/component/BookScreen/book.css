@@ -21,7 +21,7 @@
 .book-title {
     font-size: 55px;
     font-weight: 600;
-    color: rgb(233,84,32);
+    color: #68CD4F;
 }
 
 .book-info-pos {
@@ -30,8 +30,8 @@
 
 
 
-.font-orange-bolder{
-    color: rgb(233,84,32);
+.font-green-bolder{
+    color: #68CD4F;
     font-weight: bolder;
 }
 
@@ -57,7 +57,7 @@
     top: 2px;
 }
 .product-page-content .review a {
-    color: #e6400c;
+    color: #68CD4F;
 }
 .product-page-content .social-icons li a {
     background-position: 0 -38px;
@@ -113,7 +113,7 @@
     background: #edeff1;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background: #E6400C;
+    background: #68CD4F;
     color: #fff;
 }
 .product-page-content .tab-content {

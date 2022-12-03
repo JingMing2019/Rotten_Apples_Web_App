@@ -37,11 +37,7 @@ const UserProfile = () => {
             <div className="col-8">
               <UserDetail user={user}/>
               <UserReviews/>
-<<<<<<< HEAD
                {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
-=======
-              {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
->>>>>>> 9beb8a67dc5fc91c1eb69ad800d2e58c973ca012
             </div>
           </div>
         </section>

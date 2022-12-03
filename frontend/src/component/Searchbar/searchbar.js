@@ -17,19 +17,16 @@ const Searchbar = () => {
       <div className='flex mt-4'>
         <div className="row">
           <div className="col-11">
-            <input
-              className="search-bar form-control"
-              type="text"
-              placeholder="Search"
-              value={keyword}
-              onChange={event => setKeyword(event.target.value)}
-            />
+            <input className="search-bar form-control"
+                   type="text"
+                   placeholder="Search"
+                   value={keyword}
+                   onChange={event => setKeyword(event.target.value)}/>
           </div>
           <div className="col-1">
-            <button
-              type="button"
-              className="btn btn-outline-success hero-btn"
-              onClick={searchButtonHandler}>
+            <button type="button"
+                    className="btn btn-outline-success hero-btn"
+                    onClick={searchButtonHandler}>
               Search
             </button>
           </div>

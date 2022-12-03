@@ -137,5 +137,9 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.search-bar{
+    width: 500px;
+
+}
 
 

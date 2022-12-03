@@ -41,22 +41,24 @@ const GoogleSearchBookList = ({ keyword }) => {
     <div>
       <div className="flex mb-4">
         <div className="row">
-          
           <div className="col-11">
-            <input className="form-control"
+            <input className="search-bar form-control"
                    type="text"
                    placeholder="Search"
                    value={keywordInput}
                    onChange={event => setKeywordInput(event.target.value)}/>
           </div>
           <div className="col-1">
-            <button onClick={searchByKeyword} type="button" className="btn-lg btn-outline-success hero-btn">Search</button>
+            <button type="button"
+                    className="btn btn-outline-success hero-btn"
+                    onClick={searchByKeyword}>
+              Search
+            </button>
           </div>
         </div>
       </div>
-
-
       <ul className="list-group">
+        {books && <h5 className="text-white my-3">Results from Google Books...</h5>}
         {
           books &&
             books.map(

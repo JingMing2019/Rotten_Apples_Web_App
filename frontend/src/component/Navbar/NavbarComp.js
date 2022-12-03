@@ -36,16 +36,16 @@ const NavbarComp = () => {
             </Nav>
             <Nav className="ms-auto">
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown className='dropdown-item' title={userInfo.name} id="username">
                   {userInfo.role === 'writer' && (
                     <LinkContainer to={`/book/${userInfo.ownedBooks}`}>
-                      <NavDropdown.Item>My Books</NavDropdown.Item>
+                      <NavDropdown.Item className='dropdown-item'>My Books</NavDropdown.Item>
                     </LinkContainer>
                   )}
                   <LinkContainer to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item className='dropdown-item'>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                  <NavDropdown.Item className='dropdown-item' onClick={logoutHandler}>Logout</NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <>

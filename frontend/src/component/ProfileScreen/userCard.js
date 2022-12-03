@@ -27,7 +27,7 @@ const UserCard = ({
           </div>
           <h3 className="user-card-name text-white">{profile.name}
           </h3>
-          <span className="badge rounded-pill bg-primary disabled">{profile.role}</span>
+          <span className="badge rounded-pill bg-success disabled">{profile.role}</span>
           <p className="text-white">{profile.bio}</p>
           <Link to="/edit">
             <button type="reset" className="btn btn-outline-black">Edit Profile</button>

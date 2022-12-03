@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import axios from 'axios'
 import GoogleSearchListItem from './googleSearchListItem'
 import { useNavigate } from 'react-router-dom'
@@ -16,28 +16,24 @@ const GoogleSearchBookList = ({ keyword }) => {
   const saveGoogleBook = useSelector(state => state.saveGoogleBook)
   const { book: savedBook } = saveGoogleBook
 
+  const searchByKeyword = useCallback(async () => {
+    try {
+      const response = await axios.get(`/api/google/search/${keywordInput}`);
+      setBooks(response.data.data.items);
+    } catch(error) {
+      console.log(error)
+    }
+  }, [keywordInput])
+
   useEffect(() => {
     console.log(savedBook)
     if (savedBook) {
       navigate(`/book/${savedBook._id}`);
-      dispatch(resetSaveGoogleBook())
+      dispatch(resetSaveGoogleBook());
     } else {
-      fetchBooks().then(r => {})
+      searchByKeyword().then(() => {});
     }
-  }, [dispatch, savedBook])
-
-  const fetchBooks = async () => {
-    try {
-      const response = await axios.get(`/api/google/search/${keywordInput}`)
-      setBooks(response.data.data.items)
-    } catch(error) {
-      console.log(error)
-    }
-  }
-
-  const searchByKeyword = () => {
-    fetchBooks().then(r => {});
-  }
+  }, [dispatch, savedBook, searchByKeyword, navigate])
 
   return (
     <div>

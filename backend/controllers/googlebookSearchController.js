@@ -35,7 +35,6 @@ export const findBookByKeyword = async (req, res, next) => {
       // startIndex: 0,
       // maxResults: 5,
     });
-    res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true })
     res.json(books);
   } catch(error) {
     next(error);
@@ -54,7 +53,6 @@ export const findBookDetailByID = async (req, res, next) => {
       // ID of volume to retrieve.
       volumeId: book_id,
     });
-    res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true })
     res.json(book);
   } catch(error) {
     // pass an error to next() to let it be handled by the built-in error handler
@@ -69,7 +67,7 @@ export const saveGoogleBook = async (req, res, next) => {
   const book = req.body;
 
   try {
-    const existed = await Book.findOne({google_id: book.google_id})
+    const existed = await Book.findOne({google_id: book.id})
 
     if (existed) {
       res.status(200).json({

@@ -10,8 +10,8 @@ const ReviewElement = ({ book }) => {
             <img
               src={book.book.image_url}
               alt="book_image_url"
-              height="190px"
-              width="350px"
+              height="100%"
+              width="100%"
             />
             <div>{book.book.name}</div>
           </div>

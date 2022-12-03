@@ -17,7 +17,7 @@ const Searchbar = () => {
         <div className="row">
           <div className="col-11">
             <input
-              className="search-bar form-control form-control-lg"
+              className="search-bar form-control"
               type="text"
               placeholder="Search"
               value={keyword}

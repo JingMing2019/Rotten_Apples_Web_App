@@ -4,6 +4,7 @@ import GoogleSearchListItem from './googleSearchListItem'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetSaveGoogleBook } from '../../actions/bookActions'
+import './google-search.css'
 
 const GoogleSearchBookList = ({ keyword }) => {
   const keywordSearchRef = useRef()
@@ -38,6 +39,7 @@ const GoogleSearchBookList = ({ keyword }) => {
     <div>
       <div className="flex mb-4">
         <div className="row">
+          
           <div className="col-11">
             <input ref={keywordSearchRef}
                    className="form-control form-control-lg"
@@ -52,6 +54,8 @@ const GoogleSearchBookList = ({ keyword }) => {
           </div>
         </div>
       </div>
+
+
       <ul className="list-group">
         {books && books.map(r => (
           <GoogleSearchListItem book={r} key={r.id}/>

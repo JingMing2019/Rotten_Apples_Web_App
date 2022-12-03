@@ -1,12 +1,12 @@
 import express from 'express'
-import { findBookByKeyword, findBookDetailByID, saveGoogleBookBook } from '../controllers/googlebookSearchController.js'
+import { findBookByKeyword, findBookDetailByID, saveGoogleBook } from '../controllers/googlebookSearchController.js'
 
 const router = express.Router()
 
-router.get('/businesses/search/:keyword', findBookByKeyword)
+router.get('/search/:keyword', findBookByKeyword)
 
-router.get('/businesses/:_id', findBookDetailByID)
+router.get('/:_id', findBookDetailByID)
 
-router.route('/books').put(saveGoogleBookBook)
+router.route('/books').put(saveGoogleBook)
 
 export default router

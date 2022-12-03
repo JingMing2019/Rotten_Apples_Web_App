@@ -1,5 +1,5 @@
 {
-  "name": "rotten-apples-web-app",
+  "title": "rotten-apples-web-app",
   "version": "1.0.0",
   "description": "Book review web application",
   "main": "server.js",
@@ -18,11 +18,12 @@
     "full stack",
     "MERN"
   ],
-  "author": "Yingqi Zhang, Ke Li, Yulun Wang, Jing Ming",
+  "authors": "Yingqi Zhang, Ke Li, Yulun Wang, Jing Ming",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@googleapis/docs": "^2.0.0",
     "@mui/material": "^5.10.16",
     "@redux-devtools/extension": "^3.2.3",
     "@reduxjs/toolkit": "^1.9.1",
@@ -32,6 +33,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "googleapis": "^109.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.9",
     "mongoose-unique-array": "^0.4.2",

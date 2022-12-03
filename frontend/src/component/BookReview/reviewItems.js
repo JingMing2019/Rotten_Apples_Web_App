@@ -25,7 +25,7 @@ const ReviewItems = ({ review }) => {
           <div className="grid-image-left">
             {
               review.isAnonymous?
-                  <LetterAvatars name="Someone Else" isAnonymous={review.isAnonymous}/>
+                  <LetterAvatars name="f" isAnonymous={review.isAnonymous}/>
                   :
                   <Link to={`/profile/${review.user}`} className="non-line">
                     <LetterAvatars name={review.name}/>

@@ -19,10 +19,10 @@ const BookInfo = ({ bookInfo }) => {
       dispatch(getUserProfile())
     } else if (userInfo && user.name) {
       // check if the user liked the book
-      if (user && user.likedBook.numLiked > 0) {
-        const likedBook = user.likedBook.data
+      if (user && user.likedBooks.numLiked > 0) {
+        const likedBooks = user.likedBooks.data
           .find(item => item.book === book._id)
-        if (likedBook) {
+        if (likedBooks) {
           setBook({
             ...book,
             liked: true

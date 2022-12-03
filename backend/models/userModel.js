@@ -36,7 +36,7 @@ const userSchema = mongoose.Schema(
     bio: {
       type: String,
       required: true,
-      default: 'This user is too busy taking meal to write a bio.'
+      default: 'This user is too busy reading books to write a bio.'
     },
     location: {
       type: String,

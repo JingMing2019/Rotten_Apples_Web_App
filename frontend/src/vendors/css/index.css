@@ -131,5 +131,11 @@ body {
     background: linear-gradient(200deg, #68CD4F, #82E0AA);
     /*background-color: #68CD4F;*/
 }
+.search-book-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 

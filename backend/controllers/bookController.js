@@ -50,7 +50,7 @@ const deleteBook = asyncHandler(async (req, res) => {
 // @access  Private/Writer
 const createBook = asyncHandler(async (req, res) => {
   const book = new Book({
-    name: 'Sample name',
+    name: 'Sample title',
     address: 'Sample address',
     user: req.user._id,
     image_url: '/images/sample.jpg',

@@ -7,6 +7,7 @@ const Searchbar = () => {
 
   const [keyword, setKeyword] = useState('')
 
+  // When performs search, navigate to '/search/keyword' html
   const searchButtonHandler = () => {
     navigate(`/search/${keyword}`)
   }

@@ -2,26 +2,27 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './utils/connectDB.js'
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
-import userRoute from './routes/userRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import bookRoutes from './routes/bookRoutes.js'
 import googleSearchRoutes from './routes/googlebookSearchRoutes.js'
 import path from 'path'
 
 dotenv.config()
 
-connectDB()
-
 const app = express()
 
 // handle json body
 app.use(express.json())
 
-
-app.use('/api/users', userRoute)
+app.use('/api/users', userRoutes)
 
 app.use('/api/books', bookRoutes)
 
 app.use('/api/google', googleSearchRoutes)
+
+const PORT = process.env.PORT || 4000
+
+connectDB().then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)));
 
 // deployment
 // get the current root path
@@ -39,13 +40,8 @@ if (process.env.NODE_ENV === 'production') {
   )
 }
 
-// if goes here, raise not found error
+// If reach here, raise not found error
 app.use(notFound)
 
 // handle error
 app.use(errorHandler)
-
-
-const PORT = process.env.PORT || 4000
-
-app.listen(PORT)

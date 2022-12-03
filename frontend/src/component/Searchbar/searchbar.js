@@ -13,11 +13,11 @@ const Searchbar = () => {
 
   return (
     <>
-      <div className="flex mb-4">
+      <div className='flex mt-4'>
         <div className="row">
           <div className="col-11">
             <input
-              className="form-control"
+              className="search-bar form-control form-control-lg"
               type="text"
               placeholder="Search"
               value={keyword}
@@ -33,7 +33,7 @@ const Searchbar = () => {
             </button>
           </div>
         </div>
-      </div>
+        </div>
     </>
   )
 }

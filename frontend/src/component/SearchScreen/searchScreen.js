@@ -12,7 +12,7 @@ const SearchScreen = () => {
       <div>
         <section className="header">
           <div className="flex">
-            <img className="mt-5" alt="webLogo" height="100px" src={appLogo}/>
+            <img className="mt-5" alt="webLogo" height="200px" src={appLogo}/>
           </div>
           <GoogleBookSearchBookList keyword={keyword}/>
         </section>

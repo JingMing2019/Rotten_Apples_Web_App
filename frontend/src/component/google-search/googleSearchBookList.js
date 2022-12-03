@@ -40,7 +40,7 @@ const GoogleSearchBookList = ({ keyword }) => {
         <div className="row">
           <div className="col-11">
             <input ref={keywordSearchRef}
-                   className="form-control"
+                   className="form-control form-control-lg"
                    type="text"
                    placeholder="Search"
                    value={keywordInput}
@@ -48,7 +48,7 @@ const GoogleSearchBookList = ({ keyword }) => {
             />
           </div>
           <div className="col-1">
-            <button onClick={searchByKeyword} type="button" className="btn btn-outline-success hero-btn">Search</button>
+            <button onClick={searchByKeyword} type="button" className="btn-lg btn-outline-success hero-btn">Search</button>
           </div>
         </div>
       </div>

@@ -1,65 +1,109 @@
-import yelp from 'yelp-fusion'
-import asyncHandler from 'express-async-handler'
+// Find more information about this `googleapis` library at
+// https://github.com/googleapis/google-api-nodejs-client
+import { google } from 'googleapis'
 import Book from '../models/bookModel.js'
 
-const client = yelp.client('1wlU5YQHyNhUchE04oorjxwgZMFenZJDInO5TzQP6dVNMSevR-0IiK0D5NbhfvewdjWArJ9DBvh5Kajp_XrqICOXLD9Y1GMBK-rMx2wlnQ_6PeeRTE6-TJPVX3NjYnYx')
-
-export const findBookByKeyword = asyncHandler(async (req, res) => {
-  const keyword = req.params['keyword']
-
-  const books = await client.search({
-    term: keyword,
-    location: 'USA',
-    limit: 5,
-  })
-
-  res.json(books.jsonBody)
-  // const prettyJson = JSON.stringify(restaurants.jsonBody, null, 4)
+const booksClient = google.books({
+  version: "v1",
+  auth: "AIzaSyCuR-RUBcWTJO2-rpvS0y9IiTzLAd7CtC0",
 })
 
-export const findBookDetailByID = asyncHandler(async (req, res) => {
-  const _id = req.params._id
-  const book = await client.business(_id)
+// Search for Google books volumes that contain this keyword string in title.
+// Ref: https://developers.google.com/books/docs/v1/using#WorkingVolumes
+export const findBookByKeyword = async (req, res, next) => {
+  const keyword = req.params.keyword;
 
-  res.json(book.jsonBody)
-  // const prettyJson = JSON.stringify(restaurant.jsonBody, null, 4)
-})
+  try {
+    // Find a list of english books that contains keyword in title. The books contain full viewable text.
+    // The list is ordered by the books' publish date. The list contains 5 items.
+    const books = await booksClient.volumes.list({
+      // Case1: search keyword in all texts
+      // q: keyword,
+      // Case2: search one word in title AND one word in authors
+      // q: "intitle:flowers+inauthor:keyes",
+      // Case3: search keyword only in title
+      q: "intitle:" + keyword,
+      // Return just books.
+      printType: "books",
+      // Return english books.
+      langRestrict: "en",
+      // Return results in order of most recently to least recently published.
+      orderBy: "newest",
+      // Only returns results where all the text is viewable
+      filter: "full",
+      // Start from index 0, the list will contain `maxResults` items. If not specified, the list contains 10 items.
+      maxResults: 5,
+    });
+    res.json(books);
+  } catch(error) {
+    next(error);
+  }
+}
 
+// get book detail by its volume ID in google books V1 API
+// Ref: https://developers.google.com/books/docs/v1/using#ids-on-google-books-site
+export const findBookDetailByID = async (req, res, next) => {
+  const book_id = req.params._id;
+
+  try {
+    const book = await booksClient.volumes.get({
+      // ISO-3166-1 code to override the IP-based location. Default is your IP-based location.
+      // country: 'US',
+      // ID of volume to retrieve.
+      volumeId: book_id,
+    });
+    res.json(book);
+  } catch(error) {
+    // pass an error to next() to let it be handled by the built-in error handler
+    next(error);
+  }
+}
 
 // @desc    Save a book from Google Books
-// @route   POST /api/google/books
+// @route   PUT /api/google/books
 // @access  Public
-export const saveGoogleBookBook = asyncHandler(async (req, res) => {
-  const book = req.body
-  const existed = await Book.findOne({ yelp_id: book.id })
+export const saveGoogleBook = async (req, res, next) => {
+  const book = req.body;
 
-  if (existed) {
-    res.status(200).json({
-      _id: existed._id,
-      yelp_id: existed.yelp_id,
-      name: existed.name,
-      address: existed.address,
-      image_url: existed.image_url,
-      is_closed: existed.is_closed,
-      rating: existed.rating,
-      reviews: existed.reviews,
-      stats: existed.stats,
-    })
-  } else {
-    const createdBook = await Book.create({
-      yelp_id: book.id,
-      name: book.name,
-      address: book.location.address1,
-      image_url: book.image_url,
-      is_closed: book.is_closed,
-      rating: 0,
-      reviews: [],
-      stats: {
-        numReviews: 0,
-        likes: 0,
-      },
-    })
-    res.status(201).json(createdBook)
+  try {
+    const existed = await Book.findOne({google_id: book.google_id})
+
+    if (existed) {
+      res.status(200).json({
+        _id: existed._id,
+        google_id: existed.google_id,
+        title: existed.title,
+        subtitle: existed.subtitle,
+        authors: existed.authors,
+        image_url: existed.image_url,
+        rating: existed.rating,
+        reviews: existed.reviews,
+        stats: existed.stats,
+        description: existed.description,
+        published_date: existed.published_date,
+        page: existed.page,
+      })
+    } else {
+      // Create Book under BookSchema using Google Books API information
+      const createdBook = await Book.create({
+        google_id: book.id,
+        title: book.volumeInfo.title,
+        subtitle: book.volumeInfo.subtitle,
+        authors: book.volumeInfo.authors,
+        image_url: book.volumeInfo.imageLinks.thumbnail,
+        rating: 0,
+        reviews: [],
+        stats: {
+          numReviews: 0,
+          likes: 0,
+        },
+        description: book.volumeInfo.description,
+        published_date: book.volumeInfo.publishedDate,
+        page: book.pageCount,
+      })
+      res.status(201).json(createdBook)
+    }
+  } catch(error) {
+    next(error)
   }
-
-})
+}

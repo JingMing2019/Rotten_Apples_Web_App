@@ -16,17 +16,13 @@ const GoogleSearchListItem = ({ book }) => {
         <li className="text-white list-group-item justify-content-between align-items-center">
           <div className="homepage-list-child row">
             <div className="col-12 col-md-4">
-              <img className="google-search-img" src={book.image_url} alt=""/>
+              <img className="google-search-img" src={book.volumeInfo.imageLinks.thumbnail} alt="book thumbnail"/>
             </div>
             <div className="text p-2 col-md-8">
-              <h5>{book.name}</h5>
-              <p><i className="fa-solid fa-star"/>{book.rating}</p>
-              <p className="lg">Address:
-                {book.location.address1},
-                {book.location.city},
-                {book.location.state},
-                {book.location.zip_code}
-              </p>
+              <h5>{book.volumeInfo.title}</h5>
+              <h6>{book.volumeInfo.subtitle}</h6>
+              {/*<p><i className="fa-so                                                                                                                                                                                      lid fa-star"/>{book.volumeInfo.averageRating}</p>*/}
+              <p className="lg">description:{book.volumeInfo.description}</p>
             </div>
           </div>
         </li>

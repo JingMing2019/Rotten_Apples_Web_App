@@ -25,7 +25,7 @@ const UserCard = ({
           <Card.Title>
             <LetterAvatars name={profile.name}/>
           </Card.Title>
-          <Card.Title className="user-card-name text-white">{profile.name}
+          <Card.Title className="user-card-title text-white">{profile.name}
           </Card.Title>
           <Card.Text className="text-white">{profile.bio}</Card.Text>
         </Card.Body>

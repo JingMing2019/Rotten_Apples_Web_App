@@ -3,9 +3,10 @@ import { reviewSchema } from './reviewModel.js'
 
 export const bookSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
     google_id: { type: String, default: '' },
-    author: { type: String, required: true },
+    title: { type: String, required: true },
+    subtitle: { type: String, required: false },
+    authors: [{ type: String, required: true }],
     image_url: { type: String, required: true },
     rating: { type: Number, required: true, default: 0 },
     reviews: [reviewSchema],
@@ -21,9 +22,8 @@ export const bookSchema = new mongoose.Schema(
       },
     },
     description : {type: String, required: true},
-    publish_date: {type: Date, required: false},
+    published_date: {type: String, required: true},
     page: {type: Number, required: false},
-    language: {type: String, required: false},
   },
   {
     timestamps: true,

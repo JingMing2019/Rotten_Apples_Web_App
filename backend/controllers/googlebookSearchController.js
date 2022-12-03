@@ -5,7 +5,7 @@ import Book from '../models/bookModel.js'
 
 const booksClient = google.books({
   version: "v1",
-  auth: "AIzaSyCuR-RUBcWTJO2-rpvS0y9IiTzLAd7CtC0",
+  auth: process.env.GOOGLE_API_KEY,
 })
 
 // Search for Google books volumes that contain this keyword string in title.

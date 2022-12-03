@@ -17,24 +17,26 @@ const GoogleSearchBookList = ({ keyword }) => {
   const { book: savedBook } = saveGoogleBook
 
   useEffect(() => {
+    console.log(savedBook)
     if (savedBook) {
-      navigate(`/book/${savedBook._id}`)
-      // reset saved book state
+      navigate(`/book/${savedBook._id}`);
       dispatch(resetSaveGoogleBook())
     } else {
-      searchByKeyword()
+      fetchBooks().then(r => {})
     }
   }, [dispatch, savedBook])
 
-
-  const searchByKeyword = async () => {
-    navigate(`/search/${keywordInput}`)
+  const fetchBooks = async () => {
     try {
       const response = await axios.get(`/api/google/search/${keywordInput}`)
       setBooks(response.data.data.items)
     } catch(error) {
       console.log(error)
     }
+  }
+
+  const searchByKeyword = () => {
+    fetchBooks().then(r => {});
   }
 
   return (

@@ -4,7 +4,7 @@ import connectDB from './utils/connectDB.js'
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
 import userRoutes from './routes/userRoutes.js'
 import bookRoutes from './routes/bookRoutes.js'
-import googleSearchRoutes from './routes/googlebookSearchRoutes.js'
+import googleBookSearchRoutes from './routes/googleBookSearchRoutes.js'
 import path from 'path'
 
 dotenv.config()
@@ -18,7 +18,7 @@ app.use('/api/users', userRoutes)
 
 app.use('/api/books', bookRoutes)
 
-app.use('/api/google', googleSearchRoutes)
+app.use('/api/google', googleBookSearchRoutes)
 
 const PORT = process.env.PORT || 4000
 

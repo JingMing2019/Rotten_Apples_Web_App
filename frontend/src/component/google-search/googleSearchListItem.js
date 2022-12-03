@@ -11,6 +11,7 @@ const GoogleSearchListItem = ({ book }) => {
   const clickHandler = () => {
     dispatch(saveGoogleBook(book))
   }
+
   return (
     <>
       <Link to="#" onClick={clickHandler}>
@@ -22,6 +23,8 @@ const GoogleSearchListItem = ({ book }) => {
             <div className="text p-2 col-md-8">
               <h5>Title: {book.volumeInfo.title}</h5>
               <h6>SubTitle: {book.volumeInfo.subtitle}</h6>
+              <h6>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : ""}</h6>
+              <h6>Published Date: {book.volumeInfo.publishedDate}</h6>
               <h6>Page: {book.volumeInfo.pageCount}</h6>
               <h6>Description:</h6>
               <p className="lg search-book-description">{book.volumeInfo.description}</p>

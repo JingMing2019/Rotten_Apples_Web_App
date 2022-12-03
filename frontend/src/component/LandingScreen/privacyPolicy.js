@@ -1,4 +1,5 @@
 import React from "react"
+import './index.css'
 
 const PrivacyPolicy = () => {
   return (
@@ -9,8 +10,8 @@ const PrivacyPolicy = () => {
             <img
               className="m-4"
               alt="webLogo"
-              height="100px"
-              src="../img/center-logo.png"
+              height="150px"
+              src="../img/apple.png"
             />
           </div>
           <div className="flex">
@@ -36,7 +37,7 @@ const PrivacyPolicy = () => {
               href="https://www.privacypolicies.com/blog/privacy-policy-template/"
               target="_blank"
             >
-              Privacy Policy Template
+              <span className="wd-text">Privacy Policy Template</span>
             </a>
             .
           </p>

@@ -19,10 +19,10 @@ const BookInfo = ({ bookInfo }) => {
       dispatch(getUserProfile())
     } else if (userInfo && user.name) {
       // check if the user liked the book
-      if (user && user.likedBook.numLiked > 0) {
-        const likedBook = user.likedBook.data
+      if (user && user.likedBooks.numLiked > 0) {
+        const likedBooks = user.likedBooks.data
           .find(item => item.book === book._id)
-        if (likedBook) {
+        if (likedBooks) {
           setBook({
             ...book,
             liked: true
@@ -67,23 +67,24 @@ const BookInfo = ({ bookInfo }) => {
         <img src={book.image_url} className="card-img-top banner-height" alt=""/>
       </div>
       <div className="position-absolute img-title-pos">
-        <h1 className="book-title ">{book.name}</h1>
+        <h1 className="book-title">{book.title}</h1>
         <ul className="list-inline font-green-bolder">
           <li className="list-inline-item">
             <RatingStar value={book.rating}/>
           </li>
-          <li className="list-inline-item position-up"><i
-            className="fa fa-user-o"></i>{book.stats.numReviews} Reviews
+          <li className="list-inline-item position-up">
+            <i className="fa fa-user-o" />{book.stats.numReviews} Reviews
           </li>
         </ul>
 
         <ul className="list-inline font-green-bolder">
-          <li className="list-inline-item"><i
-            className="fa-solid fa-calendar-days"></i> {book.is_closed ? 'Closed' : 'Open'}
-          </li>
+          {/*<li className="list-inline-item">*/}
+          {/*  <i className="fa-solid fa-calendar-days" /> {book.is_closed ? 'Closed' : 'Open'}*/}
+          {/*</li>*/}
         </ul>
         <ul className="list-inline font-green-bolder">
-          <li className="list-inline-item"><i className="fa-solid fa-location-arrow"></i> {book.address}
+          <li className="list-inline-item">
+            <i className="fa-solid fa-location-arrow" /> {book.authors}
           </li>
         </ul>
         <div>

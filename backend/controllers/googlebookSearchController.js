@@ -14,8 +14,8 @@ export const findBookByKeyword = async (req, res, next) => {
   const keyword = req.params.keyword;
 
   try {
-    // Find a list of english books that contains keyword in title. The books contain full viewable text.
-    // The list is ordered by the books' publish date. The list contains 5 items.
+    // Find a list of english books that contains keyword in title.
+    // The list is ordered by the books' publish date.
     const books = await booksClient.volumes.list({
       // Case1: search keyword in all texts
       // q: keyword,
@@ -23,17 +23,19 @@ export const findBookByKeyword = async (req, res, next) => {
       // q: "intitle:flowers+inauthor:keyes",
       // Case3: search keyword only in title
       q: "intitle:" + keyword,
-      // Return just books.
-      printType: "books",
-      // Return english books.
-      langRestrict: "en",
       // Return results in order of most recently to least recently published.
       orderBy: "newest",
+      // Return english books.
+      langRestrict: "en",
+      // Return just books.
+      // printType: "books",
       // Only returns results where all the text is viewable
-      filter: "full",
+      // filter: "full",
       // Start from index 0, the list will contain `maxResults` items. If not specified, the list contains 10 items.
-      maxResults: 5,
+      // startIndex: 0,
+      // maxResults: 5,
     });
+    res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true })
     res.json(books);
   } catch(error) {
     next(error);
@@ -52,6 +54,7 @@ export const findBookDetailByID = async (req, res, next) => {
       // ID of volume to retrieve.
       volumeId: book_id,
     });
+    res.cookie('cookie2', 'value2', { sameSite: 'none', secure: true })
     res.json(book);
   } catch(error) {
     // pass an error to next() to let it be handled by the built-in error handler

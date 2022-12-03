@@ -37,7 +37,7 @@ const UserProfile = () => {
             <div className="col-8">
               <UserDetail user={user}/>
               <UserReviews/>
-              {user.likedBook && <FavouriteBook books={user.likedBook.data}/>}
+              {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
             </div>
           </div>
         </section>

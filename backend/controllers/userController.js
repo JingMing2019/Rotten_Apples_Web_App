@@ -128,7 +128,7 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
   let book = await Book.findById(req.params.id)
   // update user liked list
   if (user && book) {
-    user.likedBook.push({
+    user.likedBooks.push({
       name: book.name,
       image_url: book.image_url,
       book: book._id,
@@ -159,7 +159,7 @@ export const unlikeBook = expressAsyncHandler(async (req, res) => {
   // const book = await Book.findById(req.book._id)
   // update user liked list
   if (user && book) {
-    user.likedBook = user.likedBook.filter(
+    user.likedBooks = user.likedBooks.filter(
       (data) => !data.book.equals(book._id)
     )
     const updatedUser = await user.save()

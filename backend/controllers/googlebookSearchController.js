@@ -14,7 +14,7 @@ export const findBookByKeyword = asyncHandler(async (req, res) => {
   })
 
   res.json(books.jsonBody)
-  // const prettyJson = JSON.stringify(restaurants.jsonBody, null, 4)
+  // const prettyJson = JSON.stringify(books.jsonBody, null, 4)
 })
 
 export const findBookDetailByID = asyncHandler(async (req, res) => {
@@ -22,7 +22,7 @@ export const findBookDetailByID = asyncHandler(async (req, res) => {
   const book = await client.business(_id)
 
   res.json(book.jsonBody)
-  // const prettyJson = JSON.stringify(restaurant.jsonBody, null, 4)
+  // const prettyJson = JSON.stringify(book.jsonBody, null, 4)
 })
 
 

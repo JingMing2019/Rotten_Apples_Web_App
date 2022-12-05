@@ -84,7 +84,7 @@ const WriteReview = () => {
         <div className="padding-top-20">
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-success"
             onClick={submitReviewHandler}
             disabled={!userInfo}
           >

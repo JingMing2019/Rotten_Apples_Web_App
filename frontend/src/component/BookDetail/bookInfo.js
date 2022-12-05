@@ -44,6 +44,7 @@ const BookInfo = ({ bookInfo }) => {
           likes: book.stats.likes + 1
         }
       })
+  
       dispatch(likeBook(book))
     } else {
       // unlike book
@@ -89,12 +90,12 @@ const BookInfo = ({ bookInfo }) => {
         </ul>
         <div>
           <a href="#writeReview">
-            <button type="button" className="btn btn-primary" disabled={!userInfo}>Write Review</button>
+            <button type="button" className="btn btn-success" disabled={!userInfo}>Write Review</button>
           </a>
 
           <button
             type="button"
-            className="btn btn-primary ms-4"
+            className="btn btn-success ms-4"
             onClick={likeBookHandler}
             disabled={!userInfo}
           >

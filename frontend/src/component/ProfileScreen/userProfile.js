@@ -38,6 +38,7 @@ const UserProfile = () => {
               <UserDetail user={user}/>
               <UserReviews/>
 
+
                {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
 
 

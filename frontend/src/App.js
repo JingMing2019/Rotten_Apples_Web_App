@@ -35,8 +35,8 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <div className="flex mt-5">
-        <h6 className="text-decoration-none ">
+      <div className="flex mt-5 footer">
+        <h6 className="text-decoration-none text-secondary">
           Copyright © 2022–2022 Rotten Apples Inc. Rotten Apples burst and related marks
           are registered trademarks of Rotten Apples.
         </h6>

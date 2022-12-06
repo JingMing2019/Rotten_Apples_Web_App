@@ -6,7 +6,7 @@ const FavouriteBook = ({ books }) => {
   return (
     <>
       <div className="mt-5 m-3 flex">
-        <h1 className="text-white">Your Liked Books</h1>
+        <h1 className="text-black">Your Liked Books</h1>
       </div>
       <Row>
         {books &&

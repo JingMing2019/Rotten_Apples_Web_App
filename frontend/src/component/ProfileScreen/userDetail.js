@@ -16,7 +16,7 @@ const UserDetail = ({
   return(
       <>
           <div className="flex">
-              <div className="text-white user-detail height-auto mt-5">
+              <div className="text-black user-detail height-auto mt-5">
                   <h3>Username: {user.name}</h3>
                   <div className="">
                       <div className="">

@@ -14,7 +14,7 @@
 
 .avatar-position{
     position: relative;
-    left: 100px;
+    /*left: 100px;*/
     bottom: -80px;
     width: 120%;
     height: 100%;

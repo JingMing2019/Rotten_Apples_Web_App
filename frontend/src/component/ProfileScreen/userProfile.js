@@ -34,18 +34,18 @@ const UserProfile = () => {
             <div className="col-4">
               <UserCard profile={user}/>
             </div>
-            <div className="col-8">
+            <div className="col-8 bg-blur">
               <UserDetail user={user}/>
               <UserReviews/>
-
-
                {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
-
-
             </div>
           </div>
         </section>
+
+        <section className="homepage-card-section">
+        </section>
       </div>
+      {/*<div className="bg-success"></div>*/}
     </>
   )
 }

@@ -13,11 +13,11 @@ const UserCardEditProfile = ({ profile }) => {
           <div className="avatar-position">
             <LetterAvatars name={profile.name}/>
           </div>
-          <h3 className="user-card-name text-white"><span>{profile.firstname}</span> <span>{profile.lastname}</span>
+          <h3 className="user-card-name text-black"><span>{profile.firstname}</span> <span>{profile.lastname}</span>
           </h3>
-          <p className="text-white">{profile.bio}</p>
+          <p className="text-black">{profile.bio}</p>
 
-          <Link className="btn btn-outline-black" to="/profile">Back</Link>
+          <Link className="btn rounded-pill bg-success fw-bold mt-1" to="/profile">Back</Link>
         </div>
       </div>
     </>

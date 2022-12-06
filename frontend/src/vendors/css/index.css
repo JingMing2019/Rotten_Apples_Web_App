@@ -10,7 +10,7 @@ body {
 .header {
     min-height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(49, 49, 49, 0.7), rgba(49, 49, 49, 0.7)),url("../img/banner.jpg");
+    background-image: linear-gradient(rgba(49, 49, 49, 0.5), rgba(49, 49, 49, 0.5)),url("../img/books.jpeg");
     background-position: center;
     background-size: cover;
     position: relative;

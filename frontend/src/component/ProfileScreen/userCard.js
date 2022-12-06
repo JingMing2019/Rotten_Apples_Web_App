@@ -30,7 +30,7 @@ const UserCard = ({
           <span className="badge rounded-pill bg-success text-black disabled">{profile.role}</span>
           <p className="text-black">{profile.bio}</p>
           <Link to="/edit">
-            <button type="reset" className="btn rounded-pill bg-success fw-bold">Edit Profile</button>
+            <button type="reset" className="btn rounded-pill bg-success fw-bold mt-2">Edit Profile</button>
           </Link>
         </div>
       </div>

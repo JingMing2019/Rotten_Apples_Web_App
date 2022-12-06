@@ -92,7 +92,7 @@ const EditProfileItem = ({ profile }) => {
 
         <button onClick={() => editProfileClickHandler()}
                 onSubmit={() => Confirm()}
-                className="btn btn-success">Save
+                className="btn rounded-pill bg-success fw-bold mt-1">Save
         </button>
 
       </div>

@@ -25,12 +25,12 @@ const UserCard = ({
           <div className="avatar-position-profile">
             <LetterAvatars name={profile.name}/>
           </div>
-          <h3 className="user-card-name text-white">{profile.name}
+          <h3 className="user-card-name text-black">{profile.name}
           </h3>
-          <span className="badge rounded-pill bg-success disabled">{profile.role}</span>
-          <p className="text-white">{profile.bio}</p>
+          <span className="badge rounded-pill bg-success text-black disabled">{profile.role}</span>
+          <p className="text-black">{profile.bio}</p>
           <Link to="/edit">
-            <button type="reset" className="btn btn-outline-black">Edit Profile</button>
+            <button type="reset" className="btn rounded-pill bg-success fw-bold">Edit Profile</button>
           </Link>
         </div>
       </div>

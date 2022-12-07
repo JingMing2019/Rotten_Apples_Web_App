@@ -35,29 +35,31 @@ const NavbarComp = () => {
               <Nav.Link as={Link} to="/search" className={`${active === 'search' ? 'active' : ""}`}>Search</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
-              {userInfo ? (
-                <NavDropdown className='dropdown-item' title={userInfo.name} id="username">
-                  {userInfo.role === 'writer' && (
-                    <LinkContainer to={`/book/${userInfo.ownedBooks}`}>
-                      <NavDropdown.Item className='dropdown-item'>My Books</NavDropdown.Item>
-                    </LinkContainer>
-                  )}
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item className='dropdown-item'>Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Item className='dropdown-item' onClick={logoutHandler}>Logout</NavDropdown.Item>
-                </NavDropdown>
-              ) : (
-                <>
-                  <Link className="text-white" to="/login">
-                    <button className="btn btn-outline-success btn-link-black">Log in</button>
-                  </Link>
-                  <Link className="text-white" to="/register">
-                    <button className="btn btn-outline-success btn-outline-black">Sign up</button>
-                  </Link>
-                </>
-              )}
-
+              {userInfo ?
+                  (
+                    <NavDropdown className='dropdown-item' title={userInfo.name} id="username">
+                      {userInfo.role === 'writer' && (
+                        <LinkContainer to={`/book/${userInfo.ownedBooks}`}>
+                          <NavDropdown.Item className='dropdown-item'>My Books</NavDropdown.Item>
+                        </LinkContainer>
+                      )}
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item className='dropdown-item'>Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <NavDropdown.Item className='dropdown-item' onClick={logoutHandler}>Logout</NavDropdown.Item>
+                    </NavDropdown>
+                  ) :
+                  (
+                    <>
+                      <Link className="text-white" to="/login">
+                        <button className="btn btn-outline-success btn-link-black">Log in</button>
+                      </Link>
+                      <Link className="text-white" to="/register">
+                        <button className="btn btn-outline-success btn-outline-black">Sign up</button>
+                      </Link>
+                    </>
+                  )
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -24,7 +24,7 @@ const UserProfile = () => {
     } else {
       dispatch(getUserProfile())
     }
-  }, [dispatch, userInfo])
+  }, [dispatch, userInfo, navigate])
 
   return (
     <>

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import {register, resetCreateBook, resetSaveGoogleBook} from '../../actions/bookActions'
-import Message from '../Message/Message'
+import {register, resetCreateBook} from '../../actions/bookActions'
 import "./index.css"
 
 
@@ -50,18 +49,18 @@ const AddBook = () => {
         event.preventDefault()
 
             const book = {
-                google_id : "123456",
-                title,
-                subtitle,
-                authors,
-                image_url,
-                rating,
-                description,
-                published_date,
-                page,
+                google_id : "",
+                title: title,
+                subtitle: subtitle,
+                authors: [authors],
+                image_url: image_url,
+                rating: rating,
+                description: description,
+                published_date: published_date,
+                page: page,
                 stats: {
                     numReviews: 0,
-                    rating: 0,
+                    // rating: 0,
                     likes: 0,
                 },
                 reviews: []

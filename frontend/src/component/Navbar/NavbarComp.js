@@ -38,8 +38,8 @@ const NavbarComp = () => {
               {userInfo ? (
                 <NavDropdown className='dropdown-item' title={userInfo.name} id="username">
                   {userInfo.role === 'writer' && (
-                    <LinkContainer to={`/book/${userInfo.ownedBooks}`}>
-                      <NavDropdown.Item className='dropdown-item'>My Books</NavDropdown.Item>
+                    <LinkContainer to={`/addbook`}>
+                      <NavDropdown.Item className='dropdown-item'>Add My Book</NavDropdown.Item>
                     </LinkContainer>
                   )}
                   <LinkContainer to="/profile">

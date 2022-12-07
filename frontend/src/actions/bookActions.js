@@ -20,6 +20,9 @@ import {
   BOOK_TOP_RATED_REQUEST,
   BOOK_TOP_RATED_SUCCESS,
   BOOK_TOP_RATED_FAIL,
+  BOOK_CREATE_REQUEST,
+  BOOK_CREATE_SUCCESS,
+  BOOK_CREATE_FAIL
 } from '../constants/bookConstants'
 import { logout } from './userActions'
 
@@ -149,6 +152,31 @@ export const saveGoogleBook = (book) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
+    })
+  }
+}
+export const register = (book) => async (dispatch) => {
+  try {
+    // fetching data
+    dispatch({ type: BOOK_CREATE_REQUEST })
+    const { data } = await axios.post('/api/books', book)
+
+    // fetch success
+    dispatch({
+      type: BOOK_CREATE_SUCCESS,
+      payload: data,
+    })
+
+    // reset book details state
+    // dispatch({ type: BOOK_DETAILS_RESET })
+  } catch (error) {
+    // fetch failed
+    dispatch({
+      type: BOOK_CREATE_FAIL,
+      payload:
+          error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
     })
   }
 }

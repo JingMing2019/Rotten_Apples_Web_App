@@ -12,6 +12,7 @@ import Register from './component/LandingScreen/register'
 import PrivacyPolicy from './component/LandingScreen/privacyPolicy'
 import SearchScreen from './component/SearchScreen/searchScreen'
 import UserProfile from './component/ProfileScreen/userProfile'
+import AddBook from './component/EditBook/addbook'
 import OtherUserProfile from './component/ProfileScreen/otherUserProfile'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="profile/:id" element={<OtherUserProfile/>}/>
             <Route path="profile" element={<UserProfile/>}/>
             <Route path="edit" element={<EditProfile/>}/>
+            <Route path="addbook" element={<AddBook/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -22,7 +22,7 @@ import {
   BOOK_TOP_RATED_FAIL,
   BOOK_CREATE_REQUEST,
   BOOK_CREATE_SUCCESS,
-  BOOK_CREATE_FAIL
+  BOOK_CREATE_FAIL, BOOK_CREATE_RESET
 } from '../constants/bookConstants'
 import { logout } from './userActions'
 
@@ -180,7 +180,9 @@ export const register = (book) => async (dispatch) => {
     })
   }
 }
-
+export const resetCreateBook = () => async (dispatch) => {
+  dispatch({ type: BOOK_CREATE_RESET })
+}
 export const resetSaveGoogleBook = () => async (dispatch) => {
   dispatch({ type: GOOGLE_BOOK_SAVE_RESET })
 }

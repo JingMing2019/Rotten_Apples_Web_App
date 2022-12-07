@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../../actions/bookActions'
+import {register, resetCreateBook, resetSaveGoogleBook} from '../../actions/bookActions'
 import Message from '../Message/Message'
 import "./index.css"
 
@@ -37,10 +37,14 @@ const AddBook = () => {
 
     useEffect(() => {
         // setFormError('')
+        console.log(created)
         if (created) {
-            navigate(`/book/${created._id}`)
+            navigate(`/book/${created._id}`);
+            dispatch(resetCreateBook());
+        }else{
+            // searchByKeyword().then(() => {});
         }
-    }, [created])
+    }, [created,navigate,dispatch])
 
     const submitHandler = (event) => {
         event.preventDefault()

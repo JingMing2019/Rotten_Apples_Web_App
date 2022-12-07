@@ -20,7 +20,7 @@ import {
   BOOK_TOP_RATED_REQUEST,
   BOOK_TOP_RATED_SUCCESS,
   BOOK_TOP_RATED_FAIL,
-  BOOK_RECENT_REVIEWED_RESET, BOOK_CREATE_REQUEST, BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL,
+  BOOK_RECENT_REVIEWED_RESET, BOOK_CREATE_REQUEST, BOOK_CREATE_SUCCESS, BOOK_CREATE_FAIL, BOOK_CREATE_RESET,
 } from "../constants/bookConstants"
 
 export const bookListReducer = (state = { restartants: [] }, action) => {
@@ -73,7 +73,8 @@ export const bookCreateReducer = (state = {}, action) => {
       return { loading: false, book: action.payload }
     case BOOK_CREATE_FAIL:
       return { loading: false, error: action.payload }
-
+    case BOOK_CREATE_RESET:
+      return {}
     default:
       return state
   }

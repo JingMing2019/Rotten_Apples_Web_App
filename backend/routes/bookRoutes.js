@@ -8,7 +8,7 @@ import {
   createBookReview,
   getTopBooks,
   getRecentReviewedBooks,
-  deleteBookReview,
+  deleteBookReview, createBook,
 } from '../controllers/bookController.js'
 import {
   authWriter,
@@ -24,5 +24,5 @@ router
   .get(getBookById)
   .delete(authToken, authWriter, deleteBook)
   .put(authToken, authWriter, updateBook)
-
+router.post("/",createBook)
 export default router

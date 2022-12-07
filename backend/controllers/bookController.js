@@ -49,20 +49,22 @@ const deleteBook = asyncHandler(async (req, res) => {
 // @route   POST /api/books
 // @access  Private/Writer
 const createBook = asyncHandler(async (req, res) => {
-  const book = new Book({
-    name: 'Sample title',
-    address: 'Sample address',
-    user: req.user._id,
-    image_url: '/images/sample.jpg',
-    is_closed: false,
-    stats: {
-      numReviews: 0,
-      rating: 0,
-      likes: 0,
-    },
+  console.log(req.body)
+  const book = req.body
+  const createdBook = await Book.create({
+    title: book.title,
+    subtitle: book.subtitle,
+    authors: book.authors,
+    image_url: book.image_url,
+    rating: book.image_url,
+    reviews: book.reviews,
+    stats: book.stats,
+    description: book.description,
+    published_date: book.published_date,
+    page: book.page,
   })
 
-  const createdBook = await book.save()
+  // const createdBook = await book.save()
   res.status(201).json(createdBook)
 })
 

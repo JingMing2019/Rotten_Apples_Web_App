@@ -15,14 +15,14 @@ const AddBook = () => {
     const createBook = useSelector(state => state.createBook)
     const { book: created } = createBook
     const { userInfo } = userLogin
-    const [title, setTitle] = useState('Happy Book')
+    const [title, setTitle] = useState('')
     const [subtitle, setSubtitle] = useState('')
     const [authors, setAuthors] = useState(userInfo.name)
     const [image_url, setImage_url] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fdemo.publishr.cloud%2Fbooks%2Fyour-goal-guide-by-debra-eckerling-755-b&psig=AOvVaw1aUp28_hBBD5UhShqEw_yb&ust=1670478212826000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDTqZa-5vsCFQAAAAAdAAAAABAI")
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState('')
     const [description, setDescription] = useState('')
     const [published_date, setPublished_date] = useState('')
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState('')
     // const [formError, setFormError] = useState('')
 
     const [searchParams] = useSearchParams()

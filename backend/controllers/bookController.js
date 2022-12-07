@@ -56,7 +56,7 @@ const createBook = asyncHandler(async (req, res) => {
     subtitle: book.subtitle,
     authors: book.authors,
     image_url: book.image_url,
-    rating: book.image_url,
+    rating: book.rating,
     reviews: book.reviews,
     stats: book.stats,
     description: book.description,

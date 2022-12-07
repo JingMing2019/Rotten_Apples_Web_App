@@ -49,7 +49,6 @@ const deleteBook = asyncHandler(async (req, res) => {
 // @route   POST /api/books
 // @access  Private/Writer
 const createBook = asyncHandler(async (req, res) => {
-  console.log(req.body)
   const book = req.body
   const createdBook = await Book.create({
     title: book.title,

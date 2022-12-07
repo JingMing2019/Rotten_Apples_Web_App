@@ -1,8 +1,14 @@
 // Custom.scss
-// Option B: Include parts of Bootstrap
-$theme-colors: (
-  "primary": #68CD4F,
-  "danger": #82E0AA
-);
+// Option A: Include all of Bootstrap
+// ref: https://getbootstrap.com/docs/5.0/customize/sass/#importing
 
-@import "node_modules/bootstrap/scss/bootstrap";
+// Include any default variable overrides here (though functions won't be available)
+
+// Edit existing theme color
+// ref: https://getbootstrap.com/docs/5.0/customize/sass/#modify-map
+$primary: #68CD4F;
+$danger: #82E0AA;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here

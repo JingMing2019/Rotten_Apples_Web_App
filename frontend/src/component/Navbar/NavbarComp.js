@@ -65,6 +65,7 @@ const NavbarComp = () => {
         </Container>
       </Navbar>
     </header>
+
   )
 }
 

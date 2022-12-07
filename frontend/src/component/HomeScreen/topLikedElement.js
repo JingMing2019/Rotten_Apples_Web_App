@@ -11,7 +11,7 @@ const TopLikedElement = ({ book }) => {
               src={book.image_url}
               alt="book_image_url"
               height="100%"
-              width="100%"
+
               className="border border-primary rounded-6"
             />
             <div>{book.name}</div>

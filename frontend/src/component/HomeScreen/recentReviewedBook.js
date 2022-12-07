@@ -25,7 +25,7 @@ const RecentReviewedBook = () => {
   return (
     <>
       <div className="mt-5 m-3 flex">
-        <h1 className="text-black">Recent Reviewed Books</h1>
+        <h1 className="text-black">Recent Reviews</h1>
       </div>
 
       <Row className="justify-content-md-center">

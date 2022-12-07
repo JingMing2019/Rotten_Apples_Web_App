@@ -16,12 +16,12 @@ const TopLikedBook = () => {
   return (
     <>
       <div className="mt-5 m-3 flex">
-        <h1 className="text-black">Top-liked Books</h1>
+        <h1 className="text-black">Most Popular</h1>
       </div>
       <Row className="justify-content-md-center">
         {books &&
           books.map((book) => (
-            <Col key={book._id} sm={12} md={6} lg={4} xl={3}>
+            <Col key={book._id} sm={12} md={6} lg={4} xl={3} >
               <TopLikedElement book={book} />
             </Col>
           ))}

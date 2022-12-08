@@ -61,6 +61,7 @@ const createBook = asyncHandler(async (req, res) => {
     description: book.description,
     published_date: book.published_date,
     page: book.page,
+    liked:[],
   })
 
   // const createdBook = await book.save()

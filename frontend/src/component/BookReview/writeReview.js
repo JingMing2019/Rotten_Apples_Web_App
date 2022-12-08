@@ -13,19 +13,21 @@ const WriteReview = () => {
   let [comment, setComment] = useState('')
   let [rating, setRating] = useState(0)
   let [isAnonymous, setIsAnonymous] = useState(false)
-
+  const [isSending, setIsSending] = useState(false)
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const dispatch = useDispatch()
   const submitReviewHandler = (e) => {
+    setIsSending(true)
     e.preventDefault()
     dispatch(
       createBookReview(bookId, {
         rating,
         comment,
-        isAnonymous
-      })
+        isAnonymous,
+        
+      },setIsSending)
     )
   }
 
@@ -86,7 +88,7 @@ const WriteReview = () => {
             type="submit"
             className="btn btn-success"
             onClick={submitReviewHandler}
-            disabled={!userInfo}
+            disabled={isSending || !userInfo}
           >
             Send
           </button>

@@ -44,16 +44,16 @@ const userSchema = mongoose.Schema(
       default: 'Boston'
     },
     likedBooks: [
-      {
-        name: { type: String, required: true },
-        image_url: { type: String, required: true },
-        book: {
-          type: mongoose.Schema.Types.ObjectId,
-          required: true,
-          unique: true,
-          ref: 'Book',
-        },
-      }
+      // {
+      //   name: { type: String, required: true },
+      //   image_url: { type: String, required: true },
+      //   book: {
+      //     type: mongoose.Schema.Types.ObjectId,
+      //     required: true,
+      //     unique: true,
+      //     ref: 'Book',
+      //   },
+      // }
     ],
     ownedBooks: [bookSchema]
     // ownedBooks: {

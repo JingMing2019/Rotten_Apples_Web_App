@@ -13,50 +13,37 @@ const BookInfo = ({ bookInfo }) => {
   const { user } = userProfile
 
   const [book, setBook] = useState(bookInfo)
-
   useEffect(() => {
     if (userInfo && !user.name) {
       dispatch(getUserProfile())
-    } else if (userInfo && user.name) {
-      // check if the user liked the book
-      if (user && user.likedBooks.numLiked > 0) {
-        const likedBooks = user.likedBooks.data
-          .find(item => item.book === book._id)
-        if (likedBooks) {
-          setBook({
-            ...book,
-            liked: true
-          })
-        }
-      }
     }
 
   }, [dispatch, userInfo, user])
 
   const likeBookHandler = () => {
-    if (!book.liked) {
+    if (!book.liked.includes(userInfo._id)) {
       // like book
-      setBook({
+      const newBook = {
         ...book,
-        liked: !book.liked,
-        stats: {
-          ...book.stats,
-          likes: book.stats.likes + 1
-        }
-      })
+        liked: [...book.liked, userInfo._id],
+      }
+      setBook(newBook)
   
-      dispatch(likeBook(book))
+      dispatch(likeBook(newBook))
     } else {
+      const set = new Set(book.liked )
+      set.delete(userInfo._id)
+      console.log(Array.from(set))
       // unlike book
-      setBook({
+      const newBook = {
         ...book,
-        liked: !book.liked,
+        liked: Array.from(set),
         stats: {
           ...book.stats,
-          likes: book.stats.likes - 1
         }
-      })
-      dispatch(unLikeBook(book))
+      }
+      setBook(newBook)
+      dispatch(unLikeBook(newBook))
     }
 
   }
@@ -100,14 +87,14 @@ const BookInfo = ({ bookInfo }) => {
             disabled={!userInfo}
           >
             {
-              !book.liked &&
+              Array.isArray(book.liked) && !book.liked.includes(userInfo._id) &&
               <span>Like</span>
             }
             {
-              book.liked &&
+              Array.isArray(book.liked) && book.liked.includes(userInfo._id) &&
               <span>Liked</span>
             }
-            <span>({book.stats && book.stats.likes})</span></button>
+            <span>({Array.isArray(book.liked) && book.liked.length})</span></button>
         </div>
 
       </div>

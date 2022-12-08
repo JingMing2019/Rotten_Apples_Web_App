@@ -79,6 +79,7 @@ export const saveGoogleBook = async (req, res, next) => {
         image_url: existed.image_url,
         rating: existed.rating,
         reviews: existed.reviews,
+        liked:[],
         stats: existed.stats,
         description: existed.description,
         published_date: existed.published_date,
@@ -94,6 +95,7 @@ export const saveGoogleBook = async (req, res, next) => {
         image_url: book.volumeInfo.imageLinks.thumbnail,
         rating: 0,
         reviews: [],
+        liked:[],
         stats: {
           numReviews: 0,
           likes: 0,

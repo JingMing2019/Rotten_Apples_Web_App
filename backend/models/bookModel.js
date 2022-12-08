@@ -10,7 +10,7 @@ export const bookSchema = new mongoose.Schema(
     image_url: { type: String, required: true },
     rating: { type: Number, required: true, default: 0 },
     reviews: [reviewSchema],
-    liked: {type: Boolean, default: false},
+    liked: {type: Array, default: []},
     stats: {
       numReviews: {
         type: Number,

@@ -2,7 +2,6 @@ import expressAsyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
 import Book from '../models/bookModel.js'
-
 // @desc    register new suer
 // @routes   POST /api/users
 // @access  public
@@ -26,6 +25,7 @@ export const registerUser = expressAsyncHandler(async (req, res) => {
     password,
     location,
     role,
+    likedBooks: []
   })
 
   // response the new user data with token
@@ -112,6 +112,7 @@ export const getUserProfileById = expressAsyncHandler(async (req, res) => {
       lastname: otherUser.lastname,
       bio: otherUser.bio,
       location: otherUser.location,
+      likedBooks: otherUser.likedBooks,
     })
   } else {
     res.status(401)
@@ -129,14 +130,16 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
   // update user liked list
   if (user && book) {
     user.likedBooks.push({
-      name: book.name,
+      title: book.title,
       image_url: book.image_url,
-      book: book._id,
+      book: book._id
     })
+    console.log(user.likedBooks)
     const updatedUser = await user.save()
 
     // add book likes
-    book.stats.likes = book.stats.likes + 1
+    book.liked.push(req.user._id.toString())
+    console.log(book.liked)
     await book.save()
 
     res.json(formatUserResponse(updatedUser))
@@ -165,7 +168,8 @@ export const unlikeBook = expressAsyncHandler(async (req, res) => {
     const updatedUser = await user.save()
 
     // add book likes
-    book.stats.likes = book.stats.likes - 1
+    book.liked = book.liked.filter(item => req.user._id.toString() !== item)
+    console.log(book.liked, req.user._id)
     await book.save()
 
     res.json(formatUserResponse(updatedUser))
@@ -188,10 +192,7 @@ const formatUserResponse = (user) => {
     role: user.role,
     bio: user.bio,
     location: user.location,
-    likedBooks: {
-      data: user.likedBooks,
-      numLiked: user.likedBooks ? user.likedBooks.length : 0,
-    },
+    likedBooks: user.likedBooks,
     ownedBooks: user.ownedBooks,
   }
 }
@@ -206,5 +207,6 @@ const formatUserLoginResponse = (user) => {
     token: generateToken(user._id),
     role: user.role,
     ownedBooks: user.ownedBooks,
+    likedBooks: user.likedBooks,
   }
 }

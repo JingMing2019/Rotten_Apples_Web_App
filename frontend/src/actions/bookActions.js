@@ -71,7 +71,7 @@ export const listBookDetails = (id) => async (dispatch) => {
   }
 }
 
-export const createBookReview = (bookId, review) => async (
+export const createBookReview = (bookId, review,setIsSending) => async (
   dispatch,
   getState
 ) => {
@@ -90,7 +90,7 @@ export const createBookReview = (bookId, review) => async (
     }
     
     await axios.post(`/api/books/${bookId}/reviews`, review, config)
-
+    setIsSending(false)
     dispatch({
       type: BOOK_CREATE_REVIEW_SUCCESS,
     })

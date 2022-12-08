@@ -37,7 +37,7 @@ const UserProfile = () => {
             <div className="col-8 bg-blur">
               <UserDetail user={user}/>
               <UserReviews/>
-               {user.likedBooks && <FavouriteBook books={user.likedBooks.data}/>}
+               {user.likedBooks && <FavouriteBook books={user.likedBooks}/>}
             </div>
           </div>
         </section>

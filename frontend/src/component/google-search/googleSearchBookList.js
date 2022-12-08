@@ -26,7 +26,7 @@ const GoogleSearchBookList = ({ keyword }) => {
   }, [keywordInput])
 
   useEffect(() => {
-    console.log(savedBook)
+    // console.log(savedBook)
     if (savedBook) {
       navigate(`/book/${savedBook._id}`);
       dispatch(resetSaveGoogleBook());
@@ -48,7 +48,7 @@ const GoogleSearchBookList = ({ keyword }) => {
           </div>
           <div className="col-1">
             <button type="button"
-                    className="btn btn-outline-success hero-btn"
+                    className="btn btn-primary hero-btn"
                     onClick={searchByKeyword}>
               Search
             </button>

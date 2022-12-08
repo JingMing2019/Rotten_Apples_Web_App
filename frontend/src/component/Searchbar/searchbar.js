@@ -25,7 +25,7 @@ const Searchbar = () => {
           </div>
           <div className="col-1">
             <button type="button"
-                    className="btn btn-success"
+                    className="btn btn-primary hero-btn"
                     onClick={searchButtonHandler}>
               Search
             </button>

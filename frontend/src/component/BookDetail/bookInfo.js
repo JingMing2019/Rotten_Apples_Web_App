@@ -48,6 +48,8 @@ const BookInfo = ({ bookInfo }) => {
 
   }
 
+  console.log(userInfo)
+
 
   return (
     <>
@@ -87,11 +89,11 @@ const BookInfo = ({ bookInfo }) => {
             disabled={!userInfo}
           >
             {
-              Array.isArray(book.liked) && !book.liked.includes(userInfo._id) &&
+              Array.isArray(book.liked) && userInfo && !book.liked.includes(userInfo._id) &&
               <span>Like</span>
             }
             {
-              Array.isArray(book.liked) && book.liked.includes(userInfo._id) &&
+              Array.isArray(book.liked) && userInfo && book.liked.includes(userInfo._id) &&
               <span>Liked</span>
             }
             <span>({Array.isArray(book.liked) && book.liked.length})</span></button>

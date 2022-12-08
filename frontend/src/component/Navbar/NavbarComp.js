@@ -52,7 +52,7 @@ const NavbarComp = () => {
                 </NavDropdown>
               ) : (
                 <>
-                  <Link className="text-white" to="/login">
+                  <Link className="text-white me-2" to="/login">
                     <button className="btn btn-outline-success btn-link-black">Log in</button>
                   </Link>
                   <Link className="text-white" to="/register">

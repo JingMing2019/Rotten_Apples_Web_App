@@ -39,7 +39,7 @@ const EditProfileItem = ({ profile }) => {
 
       <form className="pt-5 form-width">
         <div className="form-group my-2 ">
-          <label htmlFor="name" className="form-label mx-3 font-white"> First Name</label>
+          <label htmlFor="name" className="form-label mx-3 fw-bold font-white"> First Name</label>
           <input
             required
             id="firstname"
@@ -52,7 +52,7 @@ const EditProfileItem = ({ profile }) => {
         </div>
 
         <div className="form-group my-2 ">
-          <label htmlFor="name" className="form-label mx-3 font-white"> Last Name</label>
+          <label htmlFor="name" className="form-label mx-3 fw-bold font-white"> Last Name</label>
           <input
             required
             id="lastname"
@@ -65,7 +65,7 @@ const EditProfileItem = ({ profile }) => {
         </div>
 
         <div className="form-group my-2 ">
-          <label htmlFor="bio" className="form-label mx-3 font-white">Bio</label>
+          <label htmlFor="bio" className="form-label mx-3 fw-bold font-white">Bio</label>
           <input
             type="text"
             className="form-control"
@@ -76,7 +76,7 @@ const EditProfileItem = ({ profile }) => {
         </div>
 
         <div className="form-group my-2 ">
-          <label htmlFor="location" className="form-label mx-3 font-white">Location</label>
+          <label htmlFor="location" className="form-label mx-3 fw-bold font-white">Location</label>
           <input
             type="text"
             className="form-control "

@@ -30,7 +30,7 @@ const EditProfile = () => {
       <div>
 
         <section className="header height-auto">
-          <div className="row">
+          <div className="row height-50vh">
             <div className="col-4">
               <UserCardEditProfile profile={user}/>
             </div>
@@ -38,6 +38,8 @@ const EditProfile = () => {
               <EditProfileItem profile={user}/>
             </div>
           </div>
+        </section>
+        <section className="homepage-card-section">
         </section>
       </div>
     </>

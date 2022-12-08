@@ -54,7 +54,7 @@ const BookInfo = ({ bookInfo }) => {
   return (
     <>
       <div className="position-relative">
-        <img src={book.image_url} className="card-img-top banner-height" alt=""/>
+        <img src={book.image_url} className="card-img-top banner-height float-end mt-5" alt=""/>
       </div>
       <div className="position-absolute img-title-pos">
         <h1 className="book-title">{book.title}</h1>

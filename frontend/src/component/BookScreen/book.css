@@ -10,10 +10,14 @@
     z-index: 1;
     bottom: 45%;
     left: 16%;
+    max-width: 50%;
+    top: 50px;
 }
 
 .banner-height {
-    height: 500px;
+    height: 400px;
+    width: 300px;
+    margin-right: 10%;
 }
 
 

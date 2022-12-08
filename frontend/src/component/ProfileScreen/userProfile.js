@@ -31,7 +31,7 @@ const UserProfile = () => {
       <div>
         <section className="header height-auto">
           <div className="row">
-            <div className="col-4">
+            <div className="col-4 pe-0">
               <UserCard profile={user}/>
             </div>
             <div className="col-8 bg-blur">

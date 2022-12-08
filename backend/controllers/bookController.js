@@ -5,14 +5,20 @@ import { Review } from '../models/reviewModel.js'
 // @desc    Fetch all books
 // @route   GET /api/books
 // @access  Public
-const getBooks = asyncHandler(async (req, res) => {
-  const books = await Book.find()
-  res.status(200).json({
-    success: true,
-    count: books.length,
-    data: books,
-  })
-})
+const getBooks = async (req, res, next) => {
+
+  try {
+    const books = await Book.find()
+
+    res.status(200).json({
+      success: true,
+      count: books.length,
+      data: books,
+    })
+  } catch(error) {
+    next(error)
+  }
+}
 
 // @desc    Fetch single book
 // @route   GET /api/books/:id
@@ -72,7 +78,6 @@ const createBook = asyncHandler(async (req, res) => {
 // @route   PUT /api/books/:id
 // @access  Private/Writer
 const updateBook = asyncHandler(async (req, res) => {
-  console.log(req.body)
   const { name, address, image_url, is_closed, rating, stats } = req.body
 
   const book = await Book.findById(req.params.id)

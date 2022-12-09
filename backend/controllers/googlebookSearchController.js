@@ -1,7 +1,6 @@
 // Find more information about this `googleapis` library at
 // https://github.com/googleapis/google-api-nodejs-client
 import { google } from 'googleapis'
-import Book from '../models/bookModel.js'
 import asyncHandler from 'express-async-handler'
 import * as BookDao from "../daos/bookDao.js";
 

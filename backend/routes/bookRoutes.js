@@ -2,13 +2,16 @@ import express from 'express'
 
 const router = express.Router()
 import {
+  getBooks,
   getBookById,
   deleteBook,
   updateBook,
+  createBook,
+  getReviewsByBookId,
   createBookReview,
   getTopBooks,
   getRecentReviewedBooks,
-  deleteBookReview, createBook, getBooks
+  deleteBookReview
 } from '../controllers/bookController.js'
 import {
   authWriter,
@@ -23,7 +26,9 @@ router.route('/')
 router.get('/top', getTopBooks)
 router.get('/recent-reviewed', getRecentReviewedBooks)
 
-router.route('/:id/reviews').post(authToken, createBookReview)
+router.route('/:id/reviews')
+    .post(authToken, createBookReview)
+    .get(getReviewsByBookId)
 router.route('/:id/reviews/:reviewId').delete(authToken, deleteBookReview)
 
 

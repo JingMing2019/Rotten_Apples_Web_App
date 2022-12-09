@@ -4,11 +4,12 @@ import thunk from 'redux-thunk'
 import { deleteReviewReducer, reviewReducer } from './reducers/reviewReducer'
 import {
   bookDetailsReducer,
+  bookReviewsReducer,
   bookListReducer,
   bookRencentReviewedReducer,
   saveGoogleBookReducer,
   bookTopLikedReducer, bookCreateReviewReducer,
-    bookCreateReducer
+  bookCreateReducer
 } from './reducers/bookReducer'
 import {
   otherUserProfileReducer,
@@ -24,6 +25,7 @@ const reducer = combineReducers({
   reviews: reviewReducer,
   bookList: bookListReducer,
   bookDetails: bookDetailsReducer,
+  bookReviews: bookReviewsReducer,
   bookRecentReviewed: bookRencentReviewedReducer,
   bookTopLiked: bookTopLikedReducer,
   saveGoogleBook: saveGoogleBookReducer,

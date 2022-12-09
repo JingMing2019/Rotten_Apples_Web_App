@@ -4,7 +4,7 @@ import BookDetail from '../BookDetail/bookDetail'
 import BookReview from '../BookReview/bookReview'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { listBookDetails } from '../../actions/bookActions'
+import { listBookDetails, listBookReviews } from '../../actions/bookActions'
 
 const BookScreen = () => {
   const dispatch = useDispatch()
@@ -13,6 +13,9 @@ const BookScreen = () => {
 
   const bookDetails = useSelector(state => state.bookDetails)
   const { book } = bookDetails
+
+  const bookReviews = useSelector(state => state.bookReviews)
+  const { reviews } = bookReviews
 
   const bookCreateReview = useSelector(state => state.bookCreateReview)
   const { success: createReviewSuccess } = bookCreateReview
@@ -23,12 +26,13 @@ const BookScreen = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     dispatch(listBookDetails(bookId))
+    dispatch(listBookReviews(bookId))
   }, [dispatch, bookId, createReviewSuccess, deleteReviewSuccess])
 
   return (
     <>
       <BookDetail book={book}/>
-      {book && <BookReview reviews={book.reviews}/>}
+      {book && <BookReview reviews={reviews}/>}
     </>
   )
 }

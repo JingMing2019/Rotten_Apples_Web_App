@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-// import { reviewSchema } from './reviewModel.js'
 
 export const bookSchema = new mongoose.Schema(
   {
@@ -12,7 +11,8 @@ export const bookSchema = new mongoose.Schema(
     // reviews: [reviewSchema],
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
+        required: true,
+        ref: 'Review',
     }],
     liked: {type: Array, default: []},
     stats: {

@@ -3,6 +3,8 @@ import Book from '../models/bookModel.js'
 import { Review } from '../models/reviewModel.js'
 import * as BookDao from "../daos/bookDao.js";
 import {authAdmin, authWriter} from "../middlewares/authMiddleware.js";
+import * as ReviewDao from "../daos/reviewDao.js";
+import {USER_ROLE_ADMIN} from "../constants/userConstant.js";
 
 // @desc    Fetch all books
 // @route   GET /api/books
@@ -59,17 +61,20 @@ const createBook = asyncHandler(async (req, res) => {
       subtitle: book.subtitle,
       authors: book.authors,
       image_url: book.image_url,
-      rating: book.rating,
-      reviews: book.reviews,
-      stats: book.stats,
+      rating: 0,
+      reviews: [],
+      liked: [],
+      stats: {
+        numReviews: 0,
+        likes: 0,
+      },
       description: book.description,
       published_date: book.published_date,
       page: book.page,
-      liked: [],
     }
     const createdBook = await BookDao.createBook(newBook)
 
-    return res.sendStatus(201).json(createdBook)
+    return res.status(201).json(createdBook)
   } else {
     res.status(400)
     throw new Error('Book already exists')
@@ -93,74 +98,105 @@ const updateBook = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    Fetch list of Reviews
+// @route   GET /api/books/:bid/reviews
+// @access  Public
+const getReviewsByBookId = asyncHandler(async (req, res) => {
+  const review = await ReviewDao.findReviewsByBookId(req.params.id)
+
+  res.json(review)
+})
+
 // @desc    Create a new review
 // @route   POST /api/books/:id/reviews
 // @access  Private/loggedIn user
+// TODO: update existing review
 const createBookReview = asyncHandler(async (req, res) => {
   const { rating, comment, isAnonymous } = req.body
 
-  const book = await Book.findById(req.params.id)
-  if (book) {
+  const book = await BookDao.findBookById(req.params.id)
 
-    const review = {
-      name: req.user.name,
-      rating: Number(rating),
-      comment: comment,
-      user: req.user._id,
-      book: book._id,
-      isAnonymous: isAnonymous
-    }
-
-    book.reviews.push(review)
-
-    await Review.create(review)
-
-    book.stats.numReviews = book.reviews.length
-    book.rating =
-      book.reviews.reduce((acc, curr) => {
-        return acc + curr.rating
-      }, 0) / book.reviews.length
-
-    await book.save()
-    res.status(201).json({ message: 'Review created' })
-  } else {
-    res.status(404)
-    throw new Error('Book not found')
+  const review = {
+    name: req.user.name,
+    rating: rating ? Number(rating) : -1,
+    comment: comment,
+    user: req.user._id,
+    book: book._id,
+    isAnonymous: isAnonymous
   }
+
+  // Save to reviews
+  const createdReview = await ReviewDao.createReview(review)
+  // Save to books
+  book.reviews.push(createdReview._id)
+
+  const reviews = await ReviewDao.findReviewsByBookId(book._id)
+
+  // Save book's review to this book
+  let cumRating = 0
+  let count = 0
+  for (let i = 0; i < reviews.length; i++) {
+    if (!book.reviews.includes(reviews[i]._id)) {
+      book.reviews.push(reviews[i]._id)
+    }
+    if (reviews[i].rating !== -1) {
+      cumRating += reviews[i].rating
+      count += 1
+    }
+  }
+
+  book.stats.numReviews = book.reviews.length
+  book.rating = cumRating / count
+
+  await book.save()
+  res.status(201).json({ message: 'Review created' })
 })
 
 // @desc    Create a new review
 // @route   POST /api/books/:id/reviews/:reviewId
 // @access  Private/Reviewer
 const deleteBookReview = asyncHandler(async (req, res) => {
-  const book = await Book.findById(req.params.id)
-  if (book) {
+  const review = await ReviewDao.findReviewById(req.params.reviewId)
+  console.log(review, req.user)
 
-    book.reviews = book.reviews.filter(review => !review._id.equals(req.params.reviewId))
+  if (req.user.role === USER_ROLE_ADMIN || req.user._id.equals(review.user)) {
+    const book = await BookDao.findBookById(req.params.id)
+
+    book.reviews = book.reviews.filter(reviewId => !reviewId.equals(req.params.reviewId))
+    await ReviewDao.deleteReview(req.params.reviewId)
 
     book.stats.numReviews = book.reviews.length || 0
     if (book.reviews.length !== 0) {
-      book.rating =
-        book.reviews.reduce((acc, curr) => {
-          return acc + curr.rating
-        }, 0) / book.reviews.length
+      const reviews = await ReviewDao.findReviewsByBookId(book._id)
+
+      let cumRating = 0
+      let count = 0
+      for (let i = 0; i < reviews.length; i++) {
+        if (reviews[i].rating !== -1) {
+          cumRating += reviews[i].rating
+          count += 1
+        }
+      }
+      book.rating = cumRating / count
+      // book.rating = reviews.reduce((acc, curr) => {return acc + curr.rating}, 0) / reviews.length
     } else {
       book.rating = 0
     }
 
-
     await book.save()
 
-    res.status(201).json({ message: 'Review created' })
+
+    res.status(200).json({message: 'Review deleted'})
   } else {
-    res.status(404)
-    throw new Error('Book not found')
+    res.status(400)
+    throw new Error("Book can only be deleted by admin or review's owner")
   }
 })
 
 // @desc    Get top rated books
 // @route   GET /api/books/top
 // @access  Public
+// TODO: next
 const getTopBooks = asyncHandler(async (req, res) => {
   const books = await Book.find({}).sort({ rating: -1 }).limit(3)
 
@@ -185,6 +221,7 @@ export {
   deleteBook,
   createBook,
   updateBook,
+  getReviewsByBookId,
   createBookReview,
   getTopBooks,
   getRecentReviewedBooks,

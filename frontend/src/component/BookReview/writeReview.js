@@ -68,8 +68,7 @@ const WriteReview = () => {
             value={comment}
             placeholder="Write your review"
             onChange={(event) => setComment(event.target.value)}
-            disabled={!userInfo}
-          ></textarea>
+            disabled={!userInfo}/>
         </div>
 
         <FormControlLabel

@@ -6,6 +6,7 @@ import userRoutes from './routes/userRoutes.js'
 import bookRoutes from './routes/bookRoutes.js'
 import googleBookSearchRoutes from './routes/googleBookSearchRoutes.js'
 import path from 'path'
+import reviewRoutes from "./routes/reviewRoutes.js";
 
 dotenv.config()
 
@@ -17,6 +18,8 @@ app.use(express.json())
 app.use('/api/users', userRoutes)
 
 app.use('/api/books', bookRoutes)
+
+app.use('/api/reviews', reviewRoutes)
 
 app.use('/api/google', googleBookSearchRoutes)
 

@@ -3,12 +3,16 @@
 import { google } from 'googleapis'
 import Book from '../models/bookModel.js'
 import asyncHandler from 'express-async-handler'
+import * as BookDao from "../daos/bookDao.js";
 
 const booksClient = google.books({
   version: "v1",
   auth: process.env.GOOGLE_API_KEY,
 })
 
+// @desc    find book with keyword in title from Google Books V1 API
+// @route   Get /api/google/books/:keyword
+// @access  Public
 // Search for Google books volumes that contain this keyword string in title.
 // Ref: https://developers.google.com/books/docs/v1/using#WorkingVolumes
 export const findBookByKeyword = asyncHandler(async (req, res) => {
@@ -39,6 +43,9 @@ export const findBookByKeyword = asyncHandler(async (req, res) => {
 
 })
 
+// @desc    find book by google id from Google Books V1 API
+// @route   Get /api/google/books/:id
+// @access  Public
 // get book detail by its volume ID in google books V1 API
 // Ref: https://developers.google.com/books/docs/v1/using#ids-on-google-books-site
 export const findBookDetailByID = asyncHandler(async (req, res) => {
@@ -59,7 +66,7 @@ export const findBookDetailByID = asyncHandler(async (req, res) => {
 export const saveGoogleBook = asyncHandler(async (req, res) => {
   const googleBook = req.body;
 
-  const newBook = {
+  let newBook = {
     google_id: googleBook.id,
     title: googleBook.volumeInfo.title,
     subtitle: googleBook.volumeInfo.subtitle,
@@ -70,14 +77,15 @@ export const saveGoogleBook = asyncHandler(async (req, res) => {
     page: googleBook.pageCount,
   }
 
-  const existed = await Book.findOne({google_id: googleBook.id})
+  // const existed = await Book.findOne({google_id: googleBook.id})
+  const existed = await BookDao.findBookByGoogleId(googleBook.id)
 
   if (existed) {
-    const updatedBook = await Book.findOneAndUpdate({google_id: googleBook.id}, {...newBook}, {new : true})
+    const updatedBook = await BookDao.updateBookByGoogleId(googleBook.id, newBook)
     res.json(updatedBook)
   } else {
     // Create Book under BookSchema using Google Books API information
-    const createdBook = await Book.create({
+    newBook = {
       ...newBook,
       rating: 0,
       reviews: [],
@@ -85,8 +93,9 @@ export const saveGoogleBook = asyncHandler(async (req, res) => {
       stats: {
         numReviews: 0,
         likes: 0,
-      },
-    })
+      }
+    }
+    const createdBook = await BookDao.createBook(newBook)
     res.json(createdBook)
   }
 })

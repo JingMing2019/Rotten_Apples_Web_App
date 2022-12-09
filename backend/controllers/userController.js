@@ -1,16 +1,18 @@
-import expressAsyncHandler from 'express-async-handler'
+import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
 import Book from '../models/bookModel.js'
+
 // @desc    register new suer
-// @routes   POST /api/users
+// @routes  POST /api/users
 // @access  public
-export const registerUser = expressAsyncHandler(async (req, res) => {
+export const registerUser = asyncHandler(async (req, res) => {
   const { firstname, lastname, email, password, location, role } = req.body
   const existUser = await User.findOne({ email })
 
   // check if user exists
   if (existUser) {
+    console.log("reach here")
     res.status(400)
     throw new Error('User already exists')
   }
@@ -43,7 +45,7 @@ export const registerUser = expressAsyncHandler(async (req, res) => {
 // @desc    Auth user and get token
 // @routes   POST /api/users/login
 // @access  Public
-export const loginUser = expressAsyncHandler(async (req, res) => {
+export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
   // find user by email
   const user = await User.findOne({ email })
@@ -60,7 +62,7 @@ export const loginUser = expressAsyncHandler(async (req, res) => {
 // @desc    Get user profile
 // @routes   GET /api/users/profile
 // @access  Private
-export const getUserProfile = expressAsyncHandler(async (req, res) => {
+export const getUserProfile = asyncHandler(async (req, res) => {
   // req.user is defined in authMiddleware
   const user = await User.findById(req.user._id)
   if (user) {
@@ -74,7 +76,7 @@ export const getUserProfile = expressAsyncHandler(async (req, res) => {
 // @desc    Update user profile
 // @routes   PUT /api/users/profile
 // @access  Private
-export const updateUserProfile = expressAsyncHandler(async (req, res) => {
+export const updateUserProfile = asyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   // update the updated attributes
@@ -101,7 +103,7 @@ export const updateUserProfile = expressAsyncHandler(async (req, res) => {
 // @desc    Get user profile by id (only basic information)
 // @routes   GET /api/users/profile/:id
 // @access  Public
-export const getUserProfileById = expressAsyncHandler(async (req, res) => {
+export const getUserProfileById = asyncHandler(async (req, res) => {
   // req.user is defined in authMiddleware
   const otherUser = await User.findById(req.params.id)
   if (otherUser) {
@@ -123,7 +125,7 @@ export const getUserProfileById = expressAsyncHandler(async (req, res) => {
 // @desc    like book
 // @routes   PUT /api/users/book/:id
 // @access  Private
-export const likeBook = expressAsyncHandler(async (req, res) => {
+export const likeBook = asyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   let book = await Book.findById(req.params.id)
@@ -155,7 +157,7 @@ export const likeBook = expressAsyncHandler(async (req, res) => {
 // @desc    unlike book
 // @routes   DELETE /api/users/book/:id
 // @access  Private
-export const unlikeBook = expressAsyncHandler(async (req, res) => {
+export const unlikeBook = asyncHandler(async (req, res) => {
   // get user by id
   const user = await User.findById(req.user._id)
   let book = await Book.findById(req.params.id)

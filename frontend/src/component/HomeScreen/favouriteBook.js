@@ -16,7 +16,7 @@ const FavouriteBook = ({ books }) => {
               // sm={12} md={6} lg={4}
               className="d-flex align-items-stretch"
             >
-              <FavouriteBookElement book={book}/>
+              <FavouriteBookElement key={book._id} book={book}/>
             </Col>
           ))}
       </Row>

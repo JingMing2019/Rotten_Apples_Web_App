@@ -33,7 +33,7 @@ const BookInfo = ({ bookInfo }) => {
     } else {
       const set = new Set(book.liked )
       set.delete(userInfo._id)
-      console.log(Array.from(set))
+      // console.log(Array.from(set))
       // unlike book
       const newBook = {
         ...book,

@@ -20,7 +20,7 @@ const BookReview = ({ reviews }) => {
           </ul>
           <div id="myTabContent" className="tab-content">
             <div className="tab-pane fade active show" id="Reviews">
-              {reviews.map &&
+              {reviews &&
                 reviews.map((review) => (
                   <ReviewItems key={review._id} review={review}/>
                 ))}

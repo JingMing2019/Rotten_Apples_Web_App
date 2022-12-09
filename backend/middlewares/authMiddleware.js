@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken'
-import expressAsyncHandler from 'express-async-handler'
+import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import { USER_ROLE_ADMIN, USER_ROLE_WRITER } from '../constants/userConstant.js'
 
 // authenticate user by token before getting user profile
-export const authToken = expressAsyncHandler(async (req, res, next) => {
+export const authToken = asyncHandler(async (req, res, next) => {
   let token
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
@@ -31,19 +31,28 @@ export const authToken = expressAsyncHandler(async (req, res, next) => {
 })
 
 export const authAdmin = (req, res, next) => {
-  if (req.user && req.user.type === USER_ROLE_ADMIN) {
+  if (req.user && req.user.role === USER_ROLE_ADMIN) {
     next()
   } else {
-    res.status(401)
+    res.sendStatus(401)
     throw new Error('User is not an admin')
   }
 }
 
 export const authWriter = (req, res, next) => {
-  if (req.user && req.user.type === USER_ROLE_WRITER) {
+  if (req.user && req.user.role === USER_ROLE_WRITER) {
     next()
   } else {
-    res.status(401)
+    res.sendStatus(401)
+    throw new Error('User is not a writer')
+  }
+}
+
+export const authAdminAndWriter = (req, res, next) => {
+  if (authAdmin || authWriter) {
+    next()
+  } else {
+    res.sendStatus(401)
     throw new Error('User is not a writer')
   }
 }

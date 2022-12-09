@@ -22,9 +22,8 @@ import {
   BOOK_TOP_RATED_FAIL,
   BOOK_CREATE_REQUEST,
   BOOK_CREATE_SUCCESS,
-  BOOK_CREATE_FAIL, BOOK_CREATE_RESET, BOOK_REVIEWS_REQUEST, BOOK_REVIEWS_SUCCESS, BOOK_REVIEWS_FAIL
+  BOOK_CREATE_FAIL, BOOK_CREATE_RESET
 } from '../constants/bookConstants'
-import { logout } from './userActions'
 
 export const listBooks = (keyword = '', pageNumber = '') => async (
   dispatch
@@ -67,67 +66,6 @@ export const listBookDetails = (id) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
-  }
-}
-
-export const listBookReviews = (bid) => async (dispatch) => {
-  try {
-    // fetching data
-    dispatch({ type: BOOK_REVIEWS_REQUEST })
-    const { data } = await axios.get(`/api/books/${bid}/reviews`)
-
-    // fetch success
-    dispatch({
-      type: BOOK_REVIEWS_SUCCESS,
-      payload: data,
-    })
-  } catch (error) {
-    // fetch failed
-    dispatch({
-      type: BOOK_REVIEWS_FAIL,
-      payload:
-          error.response && error.response.data.message
-              ? error.response.data.message
-              : error.message,
-    })
-  }
-}
-
-export const createBookReview = (bookId, review,setIsSending) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    dispatch({ type: BOOK_CREATE_REVIEW_REQUEST })
-    console.log(review);
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    }
-    
-    await axios.post(`/api/books/${bookId}/reviews`, review, config)
-    setIsSending(false)
-    dispatch({
-      type: BOOK_CREATE_REVIEW_SUCCESS,
-    })
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message
-    if (message === 'Not authorized, token failed') {
-      dispatch(logout())
-    }
-    dispatch({
-      type: BOOK_CREATE_REVIEW_FAIL,
-      payload: message,
     })
   }
 }

@@ -87,7 +87,6 @@ export const saveGoogleBook = asyncHandler(async (req, res) => {
     newBook = {
       ...newBook,
       rating: 0,
-      reviews: [],
       liked: [],
       stats: {
         numReviews: 0,

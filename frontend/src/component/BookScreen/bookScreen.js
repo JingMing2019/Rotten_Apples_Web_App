@@ -4,7 +4,8 @@ import BookDetail from '../BookDetail/bookDetail'
 import BookReview from '../BookReview/bookReview'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { listBookDetails, listBookReviews } from '../../actions/bookActions'
+import { listBookDetails } from '../../actions/bookActions'
+import { listBookReviews } from "../../actions/reviewActions";
 
 const BookScreen = () => {
   const dispatch = useDispatch()

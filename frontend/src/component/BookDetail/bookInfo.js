@@ -48,9 +48,6 @@ const BookInfo = ({ bookInfo }) => {
 
   }
 
-  console.log(userInfo)
-
-
   return (
     <>
       <div className="position-relative">

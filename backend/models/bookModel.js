@@ -9,11 +9,11 @@ export const bookSchema = new mongoose.Schema(
     image_url: { type: String, required: false },
     rating: { type: Number, required: true, default: 0 },
     // reviews: [reviewSchema],
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Review',
-    }],
+    // reviews: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     required: true,
+    //     ref: 'Review',
+    // }],
     liked: {type: Array, default: []},
     stats: {
       numReviews: {

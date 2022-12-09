@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import Rating from '@mui/material/Rating'
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography'
-import { createBookReview } from '../../actions/bookActions'
 import { BOOK_CREATE_REVIEW_RESET } from '../../constants/bookConstants'
 import {FormControlLabel} from "@mui/material";
+import {createBookReview} from "../../actions/reviewActions";
 
 const WriteReview = () => {
   const { id: bookId } = useParams()
@@ -40,7 +40,7 @@ const WriteReview = () => {
       setRating(0)
       dispatch({ type: BOOK_CREATE_REVIEW_RESET })
     }
-  }, [createReviewSuccess])
+  }, [createReviewSuccess, dispatch])
 
   return (
     <>

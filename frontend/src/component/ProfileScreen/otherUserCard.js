@@ -22,12 +22,12 @@ const UserCard = ({
     <>
       <Card className="user-card user-card-flex">
         <Card.Body className="m-5">
-          <Card.Title>
+          <Card.Title className="other-user-avatar">
             <LetterAvatars name={profile.name}/>
           </Card.Title>
-          <Card.Title className="user-card-title text-white">{profile.name}
+          <Card.Title className="user-card-title text-black">{profile.name}
           </Card.Title>
-          <Card.Text className="text-white">{profile.bio}</Card.Text>
+          <Card.Text className="text-black">{profile.bio}</Card.Text>
         </Card.Body>
       </Card>
     </>

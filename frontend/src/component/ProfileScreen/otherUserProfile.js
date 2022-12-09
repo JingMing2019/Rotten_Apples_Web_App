@@ -22,11 +22,11 @@ const OtherUserProfile = () => {
     <>
       <div>
         <section className="header height-auto">
-          <div className="row">
-            <div className="col-4">
+          <div className="row height-50vh">
+            <div className="col-4 pe-0">
               <OtherUserCard profile={user}/>
             </div>
-            <div className="col-8">
+            <div className="col-8 only-bg-blur">
               <OtherUserDetail user={user}/>
             </div>
           </div>

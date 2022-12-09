@@ -63,7 +63,7 @@ const BookInfo = ({ bookInfo }) => {
             <RatingStar value={book.rating}/>
           </li>
           <li className="list-inline-item position-up">
-            <i className="fa fa-user-o" />{book.stats.numReviews} Reviews
+            <i className="fa fa-user-o me-2" />{book.stats.numReviews} Reviews
           </li>
         </ul>
 
@@ -74,7 +74,7 @@ const BookInfo = ({ bookInfo }) => {
         </ul>
         <ul className="list-inline font-green-bolder">
           <li className="list-inline-item">
-            <i className="fa-solid fa-location-arrow" /> {book.authors}
+            <i className="fa-solid fa-user-pen" /> {book.authors}
           </li>
         </ul>
         <div>

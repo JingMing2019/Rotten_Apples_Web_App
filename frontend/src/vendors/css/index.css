@@ -121,6 +121,9 @@ body {
 .height-20vh {
     height: 20vh;
 }
+.height-30vh {
+    height: 30vh;
+}
 .height-50vh {
     height: 50vh;
 }
@@ -130,6 +133,7 @@ body {
 .height-100vh {
     height: 100vh;
 }
+
 .navbar-bg-color {
     background: linear-gradient(200deg, #68CD4F, #82E0AA);
     /*background-color: #68CD4F;*/
@@ -155,3 +159,21 @@ body {
 .same-width {
     width: 90%;
 }
+
+.other-user-avatar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.only-bg-blur {
+    z-index: 10;
+    width: 66.6%;
+    min-width: 400px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+

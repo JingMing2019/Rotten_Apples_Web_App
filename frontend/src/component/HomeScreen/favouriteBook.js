@@ -13,7 +13,7 @@ const FavouriteBook = ({ books }) => {
           books.map((book) => (
             <Col
               key={book._id}
-              sm={12} md={6} lg={4}
+              // sm={12} md={6} lg={4}
               className="d-flex align-items-stretch"
             >
               <FavouriteBookElement book={book}/>

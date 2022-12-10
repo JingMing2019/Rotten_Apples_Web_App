@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler' // asyncHandler is a middleware that is used to wrap async functions
-import * as ReviewDao from "../daos/ReviewDao.js";
+import * as ReviewDao from "../daos/reviewDao.js";
 import * as BookDao from "../daos/bookDao.js";
 import {USER_ROLE_ADMIN} from "../constants/userConstant.js";
 
